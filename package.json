@@ -1,0 +1,23 @@
+{
+  "name": "crush-it",
+  "version": "1.0.0",
+  "description": "A workout builder built in React.",
+  "main": "./src/index.tsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GlennCoding/crush-it-web-app.git"
+  },
+  "keywords": [
+    "React",
+    "Typescript"
+  ],
+  "author": "Glenn&Giorgi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GlennCoding/crush-it-web-app/issues"
+  },
+  "homepage": "https://github.com/GlennCoding/crush-it-web-app#readme"
+}
