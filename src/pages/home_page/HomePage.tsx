@@ -2,18 +2,26 @@ import React from "react";
 
 function WorkoutCard(props: { workoutItem: WorkoutItem }) {
     return (
-        <div className="workout-card">
-            <div className="workout-card-top-row">
-                <h3 className="workout-name">{props.workoutItem.name}</h3>
-                <p className="workout-description">
-                    {props.workoutItem.description}
-                </p>
-                <p className="workout-info">
-                    {props.workoutItem.info.numberOfSets}
-                </p>
-                <p className="workout-info">
-                    {props.workoutItem.info.numberOfExercises}
-                </p>
+        <div className="workoutCard">
+            <div className="workoutCardTopRow">
+                <h3 className="workoutName">{props.workoutItem.name}</h3>
+                <button>+ Add New</button>
+            </div>
+            <div className="workoutCardBottomRow">
+                <div>
+                    <p className="workoutDescription">
+                        {props.workoutItem.description}
+                    </p>
+                    <div className="workoutInfoContainer">
+                        <p className="workoutInfo">
+                            {props.workoutItem.info.numberOfSets}
+                        </p>
+                        <p className="workoutInfo">
+                            {props.workoutItem.info.numberOfExercises}
+                        </p>
+                    </div>
+                </div>
+                <button>Play Workout</button>
             </div>
         </div>
     );
@@ -23,12 +31,12 @@ function WorkoutList(props: { workouts: WorkoutItem[] }) {
     const workoutItems = props.workouts.map((workout) => (
         <WorkoutCard workoutItem={workout} />
     ));
-    return <div className="workout-list">{workoutItems}</div>;
+    return <div className="workoutList">{workoutItems}</div>;
 }
 
 function AddWorkoutButton() {
     return (
-        <div className="add-workout-button">
+        <div className="addWorkoutButton">
             <a href="#">Add Workout</a>
         </div>
     );
@@ -36,7 +44,7 @@ function AddWorkoutButton() {
 
 function ExtendableWorkoutList(props: { workouts: WorkoutItem[] }) {
     return (
-        <div className="extendable-workout-list">
+        <div className="extendableWorkoutList">
             <h1>Workouts</h1>
             <AddWorkoutButton />
             <WorkoutList workouts={props.workouts} />
@@ -47,10 +55,10 @@ function ExtendableWorkoutList(props: { workouts: WorkoutItem[] }) {
 function Navbar() {
     return (
         <nav className="nav">
-            <span className="nav-logo">
+            <span className="navLogo">
                 <a href="#">Crush It</a>
             </span>
-            <span className="nav-profile">
+            <span className="navProfile">
                 <a href="#">Profile Picture</a>
             </span>
         </nav>
@@ -59,7 +67,7 @@ function Navbar() {
 
 function HomePage() {
     return (
-        <div className="container">
+        <div className="homePage">
             <p>Hello World</p>
             <Navbar />
             <ExtendableWorkoutList workouts={workouts} />
