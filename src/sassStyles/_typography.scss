@@ -1,0 +1,54 @@
+@import "./mixins";
+
+h1 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 38px;
+    line-height: 44px;
+    margin: 0;
+
+    @include smMinBreakPoint {
+        font-size: 48px;
+    }
+}
+
+h2 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 36px;
+}
+
+h3 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+    margin: 0;
+
+    @include customMinBreakPoint(400) {
+        font-size: 18px;
+    }
+}
+
+h4 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 24px;
+    margin: 0;
+}
+
+h5 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+}
