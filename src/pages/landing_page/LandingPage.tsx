@@ -10,7 +10,7 @@ export default function LandingPage() {
             </div>
             <div className={styles.buttonWrapper}>
                 <a className={styles.loginButton}>Login</a>
-                <a className={styles.signupButton}>Signup</a>
+                <a className={styles.signupButton}>Sign Up</a>
             </div>
         </div>
     );

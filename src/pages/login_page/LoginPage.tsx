@@ -24,7 +24,7 @@ export default function LoginPage() {
                 </div>
 
                 <input type="submit" value="Login" />
-                <button>Login with Google</button>
+                <span>Login with Google</span>
             </form>
         </div>
     );

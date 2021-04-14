@@ -35,6 +35,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    color: $primaryDark1Color;
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
@@ -50,11 +51,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    color: $textColor;
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
     width: 100%;
-    color: $textColor;
     height: 60px;
     background: $textDark1Color;
     box-shadow: 0px 0px 2.96522px rgba(0, 0, 0, 0.084),
