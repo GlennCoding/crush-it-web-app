@@ -28,7 +28,9 @@ module.exports = {
       },
     ],
   },
-
+  devServer: {
+    port: 9000
+  },
   resolve: {
     extensions: [".tsx", ".ts", ".js", ".scss", ".sass"],
   },
