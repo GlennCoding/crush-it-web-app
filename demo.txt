@@ -1,2 +1,1 @@
-This is a demo for git
-My line
+New commit
