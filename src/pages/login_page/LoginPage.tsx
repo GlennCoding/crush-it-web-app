@@ -22,6 +22,9 @@ export default function LoginPage() {
                     <label>Remember this device</label>
                     <input type="checkbox" name="remember" id="remember" />
                 </div>
+
+                <input type="submit" value="Login" />
+                <button>Login with Google</button>
             </form>
         </div>
     );
