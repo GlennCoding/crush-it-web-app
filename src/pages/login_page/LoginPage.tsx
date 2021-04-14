@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./LoginPage.module.scss";
 
 export default function LoginPage() {
-    console.log("Git Test");
+    //Comment
     return (
         <div className={styles.loginPage}>
             <button>Back</button>
@@ -10,18 +10,19 @@ export default function LoginPage() {
             <p>
                 New here? <a href="#">Create an account</a>.
             </p>
-            <form action="POST">
+            <form action="#" method="post">
                 <label>Email</label>
                 <input type="email" name="email" id="email" />
+                <br />
+
                 <label>Password</label>
                 <input type="password" name="password" id="password" />
+
                 <div className="rememberWrapper">
                     <label>Remember this device</label>
                     <input type="checkbox" name="remember" id="remember" />
                 </div>
-                <input type="submit" value="Login" />
             </form>
-            <button className="signupButton">Login with Google</button>
         </div>
     );
 }
