@@ -5,12 +5,12 @@ import SignupPage from "./pages/signup_page/SignupPage";
 import LoginPage from "./pages/login_page/LoginPage";
 
 export default function App() {
-    return (
-        <div>
-            {/* <HomePage /> */}
-            {/* <LandingPage /> */}
-            {/* <SignupPage /> */}
-            <LoginPage />
-        </div>
-    );
+  return (
+    <div>
+      {/* <HomePage /> */}
+      <LandingPage />
+      {/* <SignupPage /> */}
+      {/* <LoginPage /> */}
+    </div>
+  );
 }

@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./LoginPage.module.scss";
 
 export default function LoginPage() {
-  
   return (
     <div className={styles.loginPage}>
       <button>Back</button>
@@ -22,6 +21,9 @@ export default function LoginPage() {
           <label>Remember this device</label>
           <input type="checkbox" name="remember" id="remember" />
         </div>
+
+        <input type="submit" value="Login" />
+        <span>Login with Google</span>
       </form>
     </div>
   );

@@ -3,7 +3,6 @@
     "allowJs": true,
     "esModuleInterop": true,
     "jsx": "react",
-    "strict": true,
-    
+    "strict": true
   }
 }
