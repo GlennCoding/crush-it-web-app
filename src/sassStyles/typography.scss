@@ -1,4 +1,5 @@
 @import "./mixins";
+@import "./variables";
 
 h1 {
     font-style: normal;
@@ -51,4 +52,8 @@ p {
     font-weight: normal;
     font-size: 14px;
     line-height: 20px;
+}
+
+a {
+    color: $linkPrimary;
 }
