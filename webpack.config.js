@@ -17,7 +17,7 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
+        type: "asset/resource",
       },
       {
         test: /\.s[ac]ss$/i,
@@ -33,7 +33,8 @@ module.exports = {
     ],
   },
   devServer: {
-    port: 9000
+    port: 9000,
+    historyApiFallback: true,
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js", ".scss", ".sass"],

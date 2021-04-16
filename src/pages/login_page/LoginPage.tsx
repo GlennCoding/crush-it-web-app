@@ -1,10 +1,13 @@
 import React from "react";
 import styles from "./LoginPage.module.scss";
+import { Link } from "react-router-dom";
 
 export default function LoginPage() {
   return (
     <div className={styles.loginPage}>
-      <button>Back</button>
+      <Link className={styles.backButton} to="/landing">
+        Back
+      </Link>
       <h1>Login</h1>
       <p>
         New here? <a href="#">Create an account</a>.
