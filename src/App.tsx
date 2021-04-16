@@ -26,7 +26,11 @@ export default function App() {
             exact
             path="/"
             render={() => {
-              return false ? <Redirect to="/home" /> : <Redirect to="/login" />;
+              return false ? (
+                <Redirect to="/home" />
+              ) : (
+                <Redirect to="/landing" />
+              );
             }}
           />
         </Switch>
