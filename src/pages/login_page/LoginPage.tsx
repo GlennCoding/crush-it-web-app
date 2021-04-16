@@ -5,26 +5,49 @@ export default function LoginPage() {
     //Comment
     return (
         <div className={styles.loginPage}>
-            <button>Back</button>
-            <h1>Login</h1>
-            <p>
+            <button className={styles.backButton}>Back</button>
+            <h1 className={styles.heading}>Login</h1>
+            <p className={styles.createAccount}>
                 New here? <a href="#">Create an account</a>.
             </p>
-            <form action="#" method="post">
-                <label>Email</label>
-                <input type="email" name="email" id="email" />
-                <br />
+            <form className={styles.loginForm} action="#" method="post">
+                <div className={styles.inputTextWrapper}>
+                    <label className={styles.formLabel} htmlFor="email">
+                        Email
+                    </label>
+                    <input
+                        className={styles.formInputText}
+                        type="email"
+                        name="email"
+                        id="email"
+                    />
 
-                <label>Password</label>
-                <input type="password" name="password" id="password" />
+                    <label className={styles.formLabel} htmlFor="password">
+                        Password
+                    </label>
+                    <input
+                        className={styles.formInputText}
+                        type="password"
+                        name="password"
+                        id="password"
+                    />
+                </div>
 
-                <div className="rememberWrapper">
-                    <label>Remember this device</label>
+                <div className={styles.rememberWrapper}>
+                    <label className={styles.formLabel} htmlFor="remember">
+                        Remember this device
+                    </label>
                     <input type="checkbox" name="remember" id="remember" />
                 </div>
 
-                <input type="submit" value="Login" />
-                <span>Login with Google</span>
+                <input
+                    className={styles.loginButton}
+                    type="submit"
+                    value="Login"
+                />
+                <button className={styles.loginWithGoogle}>
+                    Login with Google
+                </button>
             </form>
         </div>
     );
