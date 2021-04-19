@@ -7,7 +7,7 @@ const register = async (user: {
   //send post request to the server
   try {
     const response: AxiosResponse = await axios.post(
-      "http://localhost:3000/register",
+      "/register",
       {
         name: user.name,
         email: user.email,
@@ -28,7 +28,7 @@ const login = async (user: { email: string; password: string }) => {
   //send post request to the server
   try {
     const response: AxiosResponse = await axios.post(
-      "http://localhost:3000/login",
+      "/login",
       {
         email: user.email,
         password: user.password,
