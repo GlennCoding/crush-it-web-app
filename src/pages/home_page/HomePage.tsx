@@ -2,28 +2,48 @@ import React from "react";
 import styles from "./HomePage.module.scss";
 import Logo from "../../images/crush_it_logo/crush-it-logo-white-small.png";
 
+function WorkoutInfo(props: { info: WorkoutInfo }) {
+    return (
+        <div className={styles.workoutInfo}>
+            <span>
+                {props.info.numberOfSets} Sets, {props.info.numberOfExercises}{" "}
+                Exercises
+            </span>
+        </div>
+    );
+}
+
+function WorkoutDescription(props: { description: string }) {
+    return <div className={styles.workoutDescription}>{props.description}</div>;
+}
+
+function RunWorkoutButton() {
+    return <button className={styles.runWorkoutButton}>Run</button>;
+}
+
+function EditWorkoutButton() {
+    return <button className={styles.editWorkoutButton}>Edit</button>;
+}
+
+function WorkoutName(props: { name: string }) {
+    return <h5 className={styles.workoutName}>{props.name}</h5>;
+}
+
 function WorkoutCard(props: { workoutItem: WorkoutItem }) {
     return (
-        <div className="workoutCard">
-            <div className="workoutCardTopRow">
-                <h3 className="workoutName">{props.workoutItem.name}</h3>
-                <button>+ Add New</button>
+        <div className={styles.workoutCard}>
+            <div className={styles.workoutTopWrapper}>
+                <WorkoutName name={props.workoutItem.name} />
+                <EditWorkoutButton />
             </div>
-            <div className="workoutCardBottomRow">
-                <div>
-                    <p className="workoutDescription">
-                        {props.workoutItem.description}
-                    </p>
-                    <div className="workoutInfoContainer">
-                        <p className="workoutInfo">
-                            {props.workoutItem.info.numberOfSets}
-                        </p>
-                        <p className="workoutInfo">
-                            {props.workoutItem.info.numberOfExercises}
-                        </p>
-                    </div>
+            <div className={styles.workoutBottomWrapper}>
+                <div className={styles.workoutInfoWrapper}>
+                    <WorkoutDescription
+                        description={props.workoutItem.description}
+                    />
+                    <WorkoutInfo info={props.workoutItem.info} />
                 </div>
-                <button>Play Workout</button>
+                <RunWorkoutButton />
             </div>
         </div>
     );
@@ -38,23 +58,23 @@ function WorkoutList(props: { workouts: WorkoutItem[] }) {
 
 function SearchBar() {
     return (
-        <div className={styles.searchBar}>
+        <div className={styles.searchBarWrapper}>
             <input
                 className={styles.searchInput}
                 type="text"
                 name="searchInput"
                 id="searchInput"
             />
-            <button className={styles.searchButtton}>Search</button>
+            <button className={styles.searchButton}>S</button>
         </div>
     );
 }
 
 function AddWorkoutButton() {
     return (
-        <div className={styles.addWorkoutButton}>
-            <a href="#">+ Add Workout</a>
-        </div>
+        <a href="">
+            <div className={styles.addWorkoutButton}>+ Add Workout</div>
+        </a>
     );
 }
 
@@ -89,7 +109,7 @@ function Navbar() {
 function HomePage(props: { setToken: (token: string) => void }) {
     return (
         <div className={styles.homePage}>
-            {/* <button onClick={() => props.setToken("")}>Log Out</button> */}
+            <button onClick={() => props.setToken("")}>Log Out</button>
             <Navbar />
             <ExtendableWorkoutList workouts={workouts} />
         </div>

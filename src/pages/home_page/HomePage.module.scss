@@ -1,3 +1,5 @@
+@import "../../sassStyles/variables.scss";
+
 .homePage {
     width: 100vw;
     height: 100vh;
@@ -8,6 +10,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-bottom: 2.6rem;
     }
 }
 
@@ -34,21 +37,106 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 9.91549px 19.831px;
 
-    width: 117px;
-    height: 34.83px;
+    width: 13rem;
+    height: 4rem;
     left: 242px;
     top: 94px;
 
     background: #80ed99;
-    border-radius: 4.95775px;
+    border-radius: $radius2;
 
-    a {
-        text-decoration: none;
-        color: black;
-        font-weight: bold;
-        font-size: 0.9em;
-        white-space: nowrap;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 0.9em;
+    white-space: nowrap;
+}
+
+.searchBarWrapper {
+    margin-bottom: 2.6rem;
+    width: 100%;
+    display: flex;
+
+    .searchInput {
+        height: 4.8rem;
+        width: 100%;
+        padding: 10px;
+        outline: none;
+        background: $primaryDark2Color;
+        border-radius: $radius 0 0 $radius;
+        border: 0;
+        color: white;
+    }
+
+    .searchButton {
+        text-align: center;
+        height: 4.8rem;
+        width: 40px;
+        outline: none;
+        cursor: pointer;
+        border-radius: 0 $radius $radius 0;
+        border: 0;
+        background: $primaryDark2Color;
+    }
+}
+
+.workoutCard {
+    background-color: $primaryDark2Color;
+    padding: 16px;
+    margin-bottom: 1.6rem;
+    border-radius: $radius;
+
+    .workoutTopWrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+
+        .workoutName {
+            color: $primaryColor;
+            margin: 0;
+        }
+
+        .editWorkoutButton {
+            background-color: $primaryDark3Color;
+            border: 0;
+            color: white;
+            height: 3.8rem;
+            width: 7rem;
+            border-radius: $radius2;
+            font-weight: bold;
+        }
+    }
+
+    .workoutBottomWrapper {
+        display: flex;
+
+        .workoutInfoWrapper {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 7rem;
+
+            .workoutDescription {
+                color: white;
+                margin-bottom: 10px;
+            }
+
+            .workoutInfo {
+                color: $textLight1Color;
+            }
+        }
+
+        .runWorkoutButton {
+            align-self: flex-end;
+            background-color: $primaryDark1Color;
+            border: 0;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            color: $primaryColor;
+        }
     }
 }
