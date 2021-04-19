@@ -22,6 +22,7 @@ export default function SignupPage() {
       <form onSubmit={onFormSubmitted}>
         <label className="formLabel">Your Name</label>
         <input
+          required
           onChange={(e) => setName(e.target.value)}
           value={name}
           type="text"
@@ -30,6 +31,7 @@ export default function SignupPage() {
 
         <label className="formLabel">Your Email</label>
         <input
+          required
           onChange={(e) => setEmail(e.target.value)}
           value={email}
           type="email"
@@ -38,6 +40,7 @@ export default function SignupPage() {
 
         <label className="formLabel">Your Password</label>
         <input
+          required
           onChange={(e) => setPassword(e.target.value)}
           value={password}
           type="password"

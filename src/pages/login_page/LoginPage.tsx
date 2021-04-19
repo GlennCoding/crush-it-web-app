@@ -25,6 +25,7 @@ export default function LoginPage(props: {
       <form onSubmit={onFormSubmitted} method="post">
         <label>Email</label>
         <input
+          required
           onChange={(e) => setEmail(e.target.value)}
           value={email}
           type="email"
@@ -34,6 +35,7 @@ export default function LoginPage(props: {
 
         <label>Password</label>
         <input
+          required
           onChange={(e) => setPassword(e.target.value)}
           value={password}
           type="password"
