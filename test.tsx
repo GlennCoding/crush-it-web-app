@@ -8,6 +8,8 @@ export default function LoginPage() {
       <p className="Glenn">Glenn</p>
       <button>Glenn's buttton</button>
       <h1>Giorgi's Header</h1>
+      <h1> Header</h1>
+
     </div>
   );
 }
