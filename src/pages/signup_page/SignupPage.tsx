@@ -1,17 +1,29 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./SignUpPage.module.scss";
+import * as authServices from "../../services/auth_services";
 
-export default function SignupPage() {
+export default function SignupPage(props: {
+  setToken: (token: string) => void;
+}) {
   const [name, setName] = useState<string>("");
-
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
-  const onFormSubmitted = (event: any) => {
+  const onFormSubmitted = async (event: any) => {
     event.preventDefault();
     console.log(email, password, name);
+    const response = await authServices.register({ email, name, password });
+    if (response) {
+      if (response.success) {
+        props.setToken(response.token);
+      } else {
+        setErrorMessage(response.message);
+      }
+    }
   };
+
   return (
     <div className="signupPage">
       <Link className={styles.backButton} to="/landing">
@@ -61,6 +73,7 @@ export default function SignupPage() {
       <p>
         Already have an account? <a href="#">Log in</a>.
       </p>
+      <p style={{ color: "red" }}>{errorMessage}</p>
     </div>
   );
 }

@@ -8,22 +8,51 @@ import { useToken } from "./hooks/useToken";
 export default function App() {
   const { token, setToken } = useToken();
 
+  console.log(token);
   return (
     <div>
       <BrowserRouter>
         <Switch>
-          <Route exact path="/home">
-            <HomePage />
-          </Route>
-          <Route exact path="/register">
-            <SignupPage />
-          </Route>
-          <Route exact path="/login">
-            <LoginPage setToken={setToken}/>
-          </Route>
-          <Route exact path="/landing">
-            <LandingPage />
-          </Route>
+          <Route
+            exact
+            path="/home"
+            render={() => {
+              return token != null ? <HomePage /> : <Redirect to="/login" />;
+            }}
+          />
+          <Route
+            exact
+            path="/register"
+            render={() => {
+              return token != null ? (
+                <Redirect to="/home" />
+              ) : (
+                <SignupPage setToken={setToken} />
+              );
+            }}
+          />
+          <Route
+            exact
+            path="/login"
+            render={() => {
+              return token != null ? (
+                <Redirect to="/home" />
+              ) : (
+                <LoginPage setToken={setToken} />
+              );
+            }}
+          />
+          <Route
+            exact
+            path="/landing"
+            render={() => {
+              return token != null ? (
+                <Redirect to="/home" />
+              ) : (
+                <Redirect to="/landing" />
+              );
+            }}
+          />
           <Route
             exact
             path="/"
