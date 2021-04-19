@@ -1,5 +1,4 @@
-@import "../sassStyles/variables";
-@import "../sassStyles/mixins.scss";
+@import "./variables";
 
 *,
 *::before,
@@ -9,34 +8,35 @@
 
 html {
     box-sizing: border-box;
-    font-size: 55%;
+    font-size: 62.5%;
     scroll-behavior: smooth;
 
-    @include mdMinBreakPoint {
-        font-size: 58%;
-    }
-
-    @include lgMinBreakPoint {
+    /* 1200px / 16px = 75em */
+    @media (max-width: $media-lg) {
         font-size: 60%;
     }
 
-    @include xlMinBreakPoint {
-        font-size: 62.5%;
+    /* 980px / 16px = 61.25em */
+    @media (max-width: $media-md) {
+        font-size: 58%;
+    }
+
+    /* 460px / 16px = 28.75em */
+    @media (max-width: $media-sm) {
+        font-size: 55%;
     }
 }
 
 body {
     margin: 0;
     padding: 0;
-    font-size: 1.8rem;
+    font-size: $font-size;
     font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Oxygen", "Ubuntu",
         "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    box-sizing: border-box;
     color: $textColor;
     background-color: $primaryDark1Color;
-    box-sizing: border-box;
     height: 100vh;
     min-height: 100%;
 }
