@@ -9,7 +9,7 @@ export default function LoginPage() {
       <button>Glenn's buttton</button>
       <h1>Giorgi's Header</h1>
       <h1> Header</h1>
-
+      <h1>Hi</h1>
     </div>
   );
 }
