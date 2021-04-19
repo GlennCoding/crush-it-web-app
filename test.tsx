@@ -8,3 +8,5 @@ export default function LoginPage() {
         </div>
     );
 }
+
+var li = [1, 2, 3, 4];
