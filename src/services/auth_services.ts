@@ -24,4 +24,25 @@ const register = async (user: {
   }
 };
 
-export { register };
+const login = async (user: { email: string; password: string }) => {
+  //send post request to the server
+  try {
+    const response: AxiosResponse = await axios.post(
+      "http://localhost:3000/login",
+      {
+        email: user.email,
+        password: user.password,
+      },
+      {
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+    console.log(response.data);
+    return response.data;
+  } catch (e) {
+    console.log(`user_services[register] failed: ${e}`);
+    return;
+  }
+};
+
+export { register, login };

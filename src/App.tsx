@@ -20,7 +20,7 @@ export default function App() {
                             return token ? (
                                 <HomePage setToken={setToken} />
                             ) : (
-                                <Redirect to="/login" />
+                                <Redirect to="/landing-page" />
                             );
                         }}
                     />
@@ -48,12 +48,12 @@ export default function App() {
                     />
                     <Route
                         exact
-                        path="/landing"
+                        path="/landing-page"
                         render={() => {
                             return token ? (
                                 <Redirect to="/home" />
                             ) : (
-                                <Redirect to="/landing" />
+                                <LandingPage />
                             );
                         }}
                     />
@@ -64,7 +64,7 @@ export default function App() {
                             return token ? (
                                 <Redirect to="/home" />
                             ) : (
-                                <Redirect to="/landing" />
+                                <Redirect to="/landing-page" />
                             );
                         }}
                     />
