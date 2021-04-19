@@ -5,15 +5,16 @@
     height: 100vh;
     padding-right: 16px;
     padding-left: 16px;
-}
 
-.backButton {
-    margin-top: 3.6rem;
-    margin-bottom: 1.6rem;
-}
+    .backButton {
+        display: block;
+        margin-top: 3.6rem;
+        margin-bottom: 1.6rem;
+    }
 
-.heading {
-    margin-bottom: 1.6rem;
+    .heading {
+        margin-bottom: 1.6rem;
+    }
 }
 
 .createAccount {
@@ -23,65 +24,69 @@
 
 .loginForm {
     color: $textDark1Color;
-}
 
-.formLabel {
-    font-style: normal;
-    font-size: 14px;
-    line-height: 22px;
-    margin-bottom: 1rem;
-}
+    .inputTextWrapper {
+        margin-bottom: 3.6rem;
+    }
 
-.formInputText {
-    display: block;
-    height: 4.8rem;
-    width: 100%;
-    background: $primaryDark2Color;
-    border-radius: $radius;
-    border: 0;
-}
-
-.inputTextWrapper {
-    margin-bottom: 3.6rem;
-}
-
-.rememberWrapper {
-    margin-bottom: 3.6rem;
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-end;
+    label {
+        font-style: normal;
+        font-size: 14px;
+        line-height: 22px;
+        margin-bottom: 1rem;
+    }
 
     input {
-        cursor: pointer;
-        height: 18px;
-        width: 18px;
-        background-color: $primaryColor;
+        color: white;
     }
-}
 
-.loginButton {
-    height: 4.4rem;
-    width: 100%;
-    background: $primaryColor;
-    color: $primaryDark1Color;
-    border-radius: $radius;
-    border: 0;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 14px;
-    cursor: pointer;
-    margin-bottom: 1.2rem;
-}
+    .formInputText {
+        display: block;
+        height: 4.8rem;
+        width: 100%;
+        background: $primaryDark2Color;
+        border-radius: $radius;
+        border: 0;
+    }
 
-.loginWithGoogle {
-    height: 44px;
-    width: 100%;
-    background: white;
-    color: black;
-    border-radius: $radius;
-    border: 0;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 14px;
-    cursor: pointer;
+    .inputCheckboxWrapper {
+        margin-bottom: 3.6rem;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+
+        input {
+            cursor: pointer;
+            height: 18px;
+            width: 18px;
+            background-color: $primaryColor;
+        }
+    }
+
+    .loginButton {
+        height: 4.4rem;
+        width: 100%;
+        background: $primaryColor;
+        color: $primaryDark1Color;
+        border-radius: $radius;
+        border: 0;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        cursor: pointer;
+        margin-bottom: 1.2rem;
+    }
+
+    .loginButtonGoogle {
+        height: 44px;
+        width: 100%;
+        background: white;
+        color: black;
+        border-radius: $radius;
+        border: 0;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        cursor: pointer;
+    }
 }
