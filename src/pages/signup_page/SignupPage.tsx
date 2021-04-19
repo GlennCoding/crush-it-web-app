@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styles from "./SignUpPage.module.scss";
 import * as authServices from "../../services/auth_services";
 import axios from "axios";
+import Loader from "../../components/loader/Loader";
 
 export default function SignupPage(props: {
     setToken: (token: string) => void;
@@ -11,11 +12,13 @@ export default function SignupPage(props: {
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [errorMessage, setErrorMessage] = useState<string>("");
+    const [processing, setProcessing] = useState<boolean>(false);
 
     useEffect(() => {});
 
     const onFormSubmitted = async (event: any) => {
         event.preventDefault();
+        setProcessing(true);
         console.log(email, password, name);
         try {
             const response = await authServices.register({
@@ -31,10 +34,12 @@ export default function SignupPage(props: {
         } catch {
             setErrorMessage("Ups, please contact the team");
         }
+        setProcessing(false);
     };
 
     return (
         <div className={styles.signUpPage}>
+            {processing && <Loader isProcessing />}
             <Link className={styles.pageBackButton} to="/landing-page">
                 Back
             </Link>

@@ -1,0 +1,54 @@
+.homePage {
+    width: 100vw;
+    height: 100vh;
+    padding-right: 16px;
+    padding-left: 16px;
+
+    .headerWrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.nav {
+    display: flex;
+    margin-top: 3.6rem;
+    margin-bottom: 3.6rem;
+    height: 4.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .navLogo {
+        height: 100%;
+
+        img {
+            height: 100%;
+        }
+    }
+}
+
+.addWorkoutButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9.91549px 19.831px;
+
+    width: 117px;
+    height: 34.83px;
+    left: 242px;
+    top: 94px;
+
+    background: #80ed99;
+    border-radius: 4.95775px;
+
+    a {
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+        font-size: 0.9em;
+        white-space: nowrap;
+    }
+}

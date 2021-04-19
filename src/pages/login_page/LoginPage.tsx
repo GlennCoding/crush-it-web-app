@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./LoginPage.module.scss";
 import { Link } from "react-router-dom";
 import * as authServices from "../../services/auth_services";
+import Loader from "../../components/loader/Loader";
 
 export default function LoginPage(props: {
     setToken: (token: string) => void;
@@ -9,10 +10,12 @@ export default function LoginPage(props: {
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [errorMessage, setErrorMessage] = useState<string>("");
+    const [processing, setProcessing] = useState<boolean>(false);
 
     const onFormSubmitted = async (event: any) => {
         event.preventDefault();
 
+        setProcessing(true);
         try {
             const response = await authServices.login({ email, password });
             if (response.success) {
@@ -23,11 +26,13 @@ export default function LoginPage(props: {
         } catch {
             setErrorMessage("Ups, please contact the team");
         }
+        setProcessing(false);
     };
 
     //New commit
     return (
         <div className={styles.loginPage}>
+            {processing && <Loader isProcessing />}
             <Link className={styles.pageBackButton} to="/landing-page">
                 Back
             </Link>
