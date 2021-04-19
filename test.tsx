@@ -3,7 +3,7 @@ export default function LoginPage() {
   //New commit
   return (
     <div>
-      <button>Giorgi's button</button>
+      <button className="className">Giorgi's button</button>
     </div>
   );
 }
