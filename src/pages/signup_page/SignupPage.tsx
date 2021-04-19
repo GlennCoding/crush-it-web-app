@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./SignUpPage.module.scss";
+
 export default function SignupPage() {
   const [name, setName] = useState<string>("");
 
