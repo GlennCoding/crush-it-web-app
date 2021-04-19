@@ -71,6 +71,7 @@ export default function LoginPage(props: {
         <input className={styles.loginButton} type="submit" value="Login" />
         <button className={styles.loginButtonGoogle}>Login with Google</button>
         <p style={{ color: "red" }}>{errorMessage}</p>
+        <button>Giorgi</button>
       </form>
     </div>
   );
