@@ -8,7 +8,7 @@ export default function LoginPage(props: {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
-  const onLoginButtonClicked = (event: any) => {
+  const onFormSubmitted = (event: any) => {
     event.preventDefault();
     console.log(email, password);
   };
@@ -22,7 +22,7 @@ export default function LoginPage(props: {
       <p>
         New here? <a href="#">Create an account</a>.
       </p>
-      <form onSubmit={onLoginButtonClicked} method="post">
+      <form onSubmit={onFormSubmitted} method="post">
         <label>Email</label>
         <input
           onChange={(e) => setEmail(e.target.value)}

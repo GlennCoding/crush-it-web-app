@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./SignUpPage.module.scss";
 export default function SignupPage() {
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+
+  const onFormSubmitted = (event: any) => {
+    event.preventDefault();
+    console.log(email, password);
+  };
   return (
     <div className="signupPage">
       <Link className={styles.backButton} to="/landing">
