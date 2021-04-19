@@ -4,6 +4,7 @@ export default function LoginPage() {
   return (
     <div>
       <button className="className">Giorgi's button</button>
+      <p>Giorgi</p>
     </div>
   );
 }
