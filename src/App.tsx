@@ -17,14 +17,18 @@ export default function App() {
             exact
             path="/home"
             render={() => {
-              return token != null ? <HomePage /> : <Redirect to="/login" />;
+              return token ? (
+                <HomePage setToken={setToken} />
+              ) : (
+                <Redirect to="/login" />
+              );
             }}
           />
           <Route
             exact
             path="/register"
             render={() => {
-              return token != null ? (
+              return token ? (
                 <Redirect to="/home" />
               ) : (
                 <SignupPage setToken={setToken} />
@@ -35,7 +39,7 @@ export default function App() {
             exact
             path="/login"
             render={() => {
-              return token != null ? (
+              return token ? (
                 <Redirect to="/home" />
               ) : (
                 <LoginPage setToken={setToken} />
@@ -46,7 +50,7 @@ export default function App() {
             exact
             path="/landing"
             render={() => {
-              return token != null ? (
+              return token ? (
                 <Redirect to="/home" />
               ) : (
                 <Redirect to="/landing" />
@@ -57,7 +61,7 @@ export default function App() {
             exact
             path="/"
             render={() => {
-              return token != null ? (
+              return token ? (
                 <Redirect to="/home" />
               ) : (
                 <Redirect to="/landing" />

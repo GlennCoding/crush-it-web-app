@@ -61,10 +61,11 @@ function Navbar() {
   );
 }
 
-function HomePage() {
+function HomePage(props: { setToken: (token: string) => void }) {
   return (
     <div className="homePage">
-      <p>Hello World</p>
+      <button onClick={() => props.setToken("")}>Log Out</button>
+      <h1>Hello World!</h1>
       <Navbar />
       <ExtendableWorkoutList workouts={workouts} />
     </div>
