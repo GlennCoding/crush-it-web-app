@@ -24,6 +24,7 @@ export default function LoginPage(props: {
       setErrorMessage("Ups, please contact the team");
     }
   };
+  
   //New commit
   return (
     <div className={styles.loginPage}>
