@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from "./SignUpPage.module.scss";
 import * as authServices from "../../services/auth_services";
+import axios from "axios";
 
 export default function SignupPage(props: {
   setToken: (token: string) => void;
@@ -11,27 +12,29 @@ export default function SignupPage(props: {
   const [password, setPassword] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<string>("");
 
+  useEffect(() => {});
+
   const onFormSubmitted = async (event: any) => {
     event.preventDefault();
     console.log(email, password, name);
-    const response = await authServices.register({ email, name, password });
-    if (response) {
+    try {
+      const response = await authServices.register({ email, name, password });
       if (response.success) {
         props.setToken(response.token);
       } else {
         setErrorMessage(response.message);
       }
+    } catch {
+      setErrorMessage("Ups, please contact the team");
     }
   };
 
   return (
     <div className="signupPage">
-      <Link className={styles.backButton} to="/landing">
+      <Link className={styles.backButton} to="/landing-page">
         Back
       </Link>
-
       <h1>Create Account</h1>
-
       <form onSubmit={onFormSubmitted}>
         <label className="formLabel">Your Name</label>
         <input
@@ -41,6 +44,7 @@ export default function SignupPage(props: {
           type="text"
           id="name"
         />
+        <br />
 
         <label className="formLabel">Your Email</label>
         <input
@@ -50,6 +54,7 @@ export default function SignupPage(props: {
           type="email"
           id="email"
         />
+        <br />
 
         <label className="formLabel">Your Password</label>
         <input
