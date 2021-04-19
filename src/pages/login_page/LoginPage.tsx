@@ -28,11 +28,11 @@ export default function LoginPage(props: {
     //New commit
     return (
         <div className={styles.loginPage}>
-            <Link className={styles.backButton} to="/landing-page">
+            <Link className={styles.pageBackButton} to="/landing-page">
                 Back
             </Link>
-            <h1 className={styles.heading}>Login</h1>
-            <p className={styles.createAccount}>
+            <h1 className={styles.pageHeader}>Login</h1>
+            <p className={styles.createAccountNotice}>
                 New here? <Link to="/register">Create an account</Link>.
             </p>
             <form
@@ -43,7 +43,7 @@ export default function LoginPage(props: {
                 <div className={styles.inputTextWrapper}>
                     <label>Email</label>
                     <input
-                        className={styles.formInputText}
+                        className={styles.inputTextField}
                         required
                         onChange={(e) => setEmail(e.target.value)}
                         value={email}
@@ -54,7 +54,7 @@ export default function LoginPage(props: {
                 <div className={styles.inputTextWrapper}>
                     <label>Password</label>
                     <input
-                        className={styles.formInputText}
+                        className={styles.inputTextField}
                         required
                         onChange={(e) => setPassword(e.target.value)}
                         value={password}
@@ -65,7 +65,11 @@ export default function LoginPage(props: {
 
                 <div className={styles.inputCheckboxWrapper}>
                     <label>Remember this device</label>
-                    <input type="checkbox" id="remember" />
+                    <input
+                        className={styles.inputCheckbox}
+                        type="checkbox"
+                        id="remember"
+                    />
                 </div>
 
                 <input
