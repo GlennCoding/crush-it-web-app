@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./LoginPage.module.scss";
 import { Link } from "react-router-dom";
 
-export default function LoginPage() {
+export default function LoginPage(props: {
+  setToken: (token: string) => void;
+}) {
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+
+  const onLoginButtonClicked = (event: any) => {
+    event.preventDefault();
+    console.log(email, password);
+  };
+
   return (
     <div className={styles.loginPage}>
       <Link className={styles.backButton} to="/landing">
@@ -12,17 +22,27 @@ export default function LoginPage() {
       <p>
         New here? <a href="#">Create an account</a>.
       </p>
-      <form action="#" method="post">
+      <form onSubmit={onLoginButtonClicked} method="post">
         <label>Email</label>
-        <input type="email" name="email" id="email" />
+        <input
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
+          type="email"
+          id="email"
+        />
         <br />
 
         <label>Password</label>
-        <input type="password" name="password" id="password" />
+        <input
+          onChange={(e) => setPassword(e.target.value)}
+          value={password}
+          type="password"
+          id="password"
+        />
 
         <div className="rememberWrapper">
           <label>Remember this device</label>
-          <input type="checkbox" name="remember" id="remember" />
+          <input type="checkbox" id="remember" />
         </div>
 
         <input type="submit" value="Login" />
