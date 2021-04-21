@@ -4,22 +4,45 @@ import { Link } from "react-router-dom";
 import * as authServices from "../../services/auth_services";
 import * as icons from "@material-ui/icons";
 import Loader from "../../components/loader/Loader";
+import { ids } from "webpack";
 
-function LogInForm() {}
+function GreenButton() {
+    return;
+}
 
-function BackButtonLarge(props: { setToken: (token: string) => void }) {
+function CheckBoxWithLabel(props: CheckBoxWithLabelProps) {
+    const label = <label>{props.labelText}</label>;
     return (
-        <Link to="/landing-page">
-            <div className={styles.BackButtonLarge}>
-                <icons.ArrowBackRounded />
-            </div>
-        </Link>
+        <>
+            {props.labelText && label}
+            <input
+                className={styles.inputCheckbox}
+                type="checkbox"
+                id={props.id}
+                required={props.required}
+            />
+        </>
     );
 }
 
-export default function LoginPage(props: {
-    setToken: (token: string) => void;
-}) {
+function TextInputWithLabel(props: TextInputWithLabelProps) {
+    const label = <label>{props.labelText}</label>;
+    return (
+        <>
+            {props.labelText && label}
+            <input
+                className={styles.inputText}
+                onChange={props.onChange}
+                value={props.value}
+                type={props.type}
+                id={props.id}
+                required={props.required}
+            />
+        </>
+    );
+}
+
+function LogInForm(props: { setToken: (token: string) => void }) {
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [errorMessage, setErrorMessage] = useState<string>("");
@@ -43,65 +66,103 @@ export default function LoginPage(props: {
         }
     };
 
-    //New commit
     return (
-        <div className={styles.loginPage}>
+        <>
             {processing && <Loader isProcessing />}
-
-            <BackButtonLarge setToken={props.setToken} />
-
-            <h1 className={styles.pageHeader}>Login</h1>
-            <p className={styles.createAccountNotice}>
-                New here? <Link to="/register">Create an account</Link>.
-            </p>
-
             <form
                 className={styles.loginForm}
                 onSubmit={onFormSubmitted}
                 method="post"
             >
                 <div className={styles.inputTextWrapper}>
-                    <label>Email</label>
-                    <input
-                        className={styles.inputTextField}
-                        required
+                    {/* <FormLabel labelText={"Email"} />
+                    <inputText
                         onChange={(e) => setEmail(e.target.value)}
                         value={email}
-                        type="email"
-                        id="email"
+                        type={"email"}
+                        id={"email"}
+                        required={true}
+                    /> */}
+                    <TextInputWithLabel
+                        labelText="Email"
+                        onChange={(e) => setEmail(e.target.value)}
+                        value={email}
+                        type={"email"}
+                        id={"email"}
+                        required={true}
                     />
                 </div>
                 <div className={styles.inputTextWrapper}>
-                    <label>Password</label>
-                    <input
-                        className={styles.inputTextField}
-                        required
+                    <TextInputWithLabel
+                        labelText="Password"
                         onChange={(e) => setPassword(e.target.value)}
                         value={password}
-                        type="password"
-                        id="password"
+                        type={"password"}
+                        id={"password"}
+                        required={true}
                     />
                 </div>
 
                 <div className={styles.inputCheckboxWrapper}>
-                    <label>Remember this device</label>
-                    <input
-                        className={styles.inputCheckbox}
-                        type="checkbox"
-                        id="remember"
+                    {/* <FormLabel labelText="Remember this device" />
+                    <inputCheckbox id={"remember"} required={false} /> */}
+                    <CheckBoxWithLabel
+                        labelText="Remember this device"
+                        id={"remember"}
+                        required={false}
                     />
                 </div>
 
-                <input
-                    className={styles.loginButton}
-                    type="submit"
-                    value="Login"
-                />
+                <button className={styles.loginButton} type="submit">
+                    Login
+                </button>
                 <button className={styles.loginButtonGoogle}>
                     Login with Google
                 </button>
                 <p style={{ color: "red" }}>{errorMessage}</p>
             </form>
+        </>
+    );
+}
+
+function BackButtonLarge(props: { setToken: (token: string) => void }) {
+    return (
+        <div>
+            <Link to="/landing-page">
+                <span className={styles.BackButtonLarge}>
+                    <icons.ArrowBackRounded />
+                </span>
+            </Link>
         </div>
     );
+}
+
+export default function LoginPage(props: {
+    setToken: (token: string) => void;
+}) {
+    return (
+        <div className={styles.loginPage}>
+            <BackButtonLarge setToken={props.setToken} />
+            <h1 className={styles.pageHeader}>Login</h1>
+            <p className={styles.createAccountNotice}>
+                New here? <Link to="/register">Create an account</Link>.
+            </p>
+            <LogInForm setToken={props.setToken} />
+        </div>
+    );
+}
+
+interface TextInputWithLabelProps {
+    labelText?: string;
+    onChange?: (e: any) => void;
+    value?: string;
+    type?: string;
+    id?: string;
+    required?: boolean;
+}
+
+interface CheckBoxWithLabelProps {
+    labelText?: string;
+    id?: string;
+    required?: boolean;
 }
