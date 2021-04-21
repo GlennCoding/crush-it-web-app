@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "./HomePage.module.scss";
 import Logo from "../../images/crush_it_logo/crush-it-logo-white-small.png";
+import * as icons from "@material-ui/icons";
+import { Link } from "react-router-dom";
 
 function WorkoutInfo(props: { info: WorkoutInfo }) {
     return (
@@ -18,7 +20,11 @@ function WorkoutDescription(props: { description: string }) {
 }
 
 function RunWorkoutButton() {
-    return <button className={styles.runWorkoutButton}>Run</button>;
+    return (
+        <button className={styles.runWorkoutButton}>
+            <icons.PlayArrowRounded />
+        </button>
+    );
 }
 
 function EditWorkoutButton() {
@@ -65,7 +71,9 @@ function SearchBar() {
                 name="searchInput"
                 id="searchInput"
             />
-            <button className={styles.searchButton}>S</button>
+            <button className={styles.searchButton}>
+                <icons.SearchRounded />
+            </button>
         </div>
     );
 }
@@ -99,9 +107,9 @@ function Navbar() {
                     <img src={Logo} alt="Crush It Logo" />
                 </a>
             </span>
-            <span className={styles.navProfile}>
-                <a href="#">Profile Picture</a>
-            </span>
+            <Link to="#">
+                <icons.AccountCircleRounded className={styles.navProfile} />
+            </Link>
         </nav>
     );
 }
