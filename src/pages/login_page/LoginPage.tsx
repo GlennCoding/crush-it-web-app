@@ -5,6 +5,7 @@ import * as authServices from "../../services/auth_services";
 import * as icons from "@material-ui/icons";
 import Loader from "../../components/loader/Loader";
 import { ids } from "webpack";
+import TextInputWithLabel from "../../components/text_input_with_label/TextInputWithLabel";
 
 function GreenButton() {
     return;
@@ -18,23 +19,6 @@ function CheckBoxWithLabel(props: CheckBoxWithLabelProps) {
             <input
                 className={styles.inputCheckbox}
                 type="checkbox"
-                id={props.id}
-                required={props.required}
-            />
-        </>
-    );
-}
-
-function TextInputWithLabel(props: TextInputWithLabelProps) {
-    const label = <label>{props.labelText}</label>;
-    return (
-        <>
-            {props.labelText && label}
-            <input
-                className={styles.inputText}
-                onChange={props.onChange}
-                value={props.value}
-                type={props.type}
                 id={props.id}
                 required={props.required}
             />
@@ -75,14 +59,6 @@ function LogInForm(props: { setToken: (token: string) => void }) {
                 method="post"
             >
                 <div className={styles.inputTextWrapper}>
-                    {/* <FormLabel labelText={"Email"} />
-                    <inputText
-                        onChange={(e) => setEmail(e.target.value)}
-                        value={email}
-                        type={"email"}
-                        id={"email"}
-                        required={true}
-                    /> */}
                     <TextInputWithLabel
                         labelText="Email"
                         onChange={(e) => setEmail(e.target.value)}
@@ -104,8 +80,6 @@ function LogInForm(props: { setToken: (token: string) => void }) {
                 </div>
 
                 <div className={styles.inputCheckboxWrapper}>
-                    {/* <FormLabel labelText="Remember this device" />
-                    <inputCheckbox id={"remember"} required={false} /> */}
                     <CheckBoxWithLabel
                         labelText="Remember this device"
                         id={"remember"}
