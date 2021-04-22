@@ -1,165 +1,22 @@
 import React, { useState } from "react";
 import styles from "./LoginPage.module.scss";
 import { Link } from "react-router-dom";
-import * as authServices from "../../services/auth_services";
-import * as icons from "@material-ui/icons";
-import Loader from "../../components/loader/Loader";
-import { ids } from "webpack";
-import TextInputWithLabel from "../../components/text_input_with_label/TextInputWithLabel";
-import CheckBoxWithLabel from "../../components/check_box_with_label/CheckBoxWithLabel";
-
-function ButtonGreen(props: ButtonGreenProps) {
-    return (
-        <button
-            className={`${styles.buttonGreen} ${
-                props.radiusSize === "radiusSm"
-                    ? styles.radiusSm
-                    : styles.radiusLg
-            }`}
-            type={props.type}
-        >
-            {props.text}
-        </button>
-    );
-}
-
-function ButtonWhiteWithIcon(props: ButtonWhiteWithIconProps) {
-    return (
-        <button
-            className={`${styles.buttonWhiteWithIcon} ${
-                props.radiusSize === "radiusSm"
-                    ? styles.radiusSm
-                    : styles.radiusLg
-            }`}
-            type={props.type}
-        >
-            {props.icon}
-            {props.text}
-        </button>
-    );
-}
-
-function LogInForm(props: { setToken: (token: string) => void }) {
-    const [email, setEmail] = useState<string>("");
-    const [password, setPassword] = useState<string>("");
-    const [errorMessage, setErrorMessage] = useState<string>("");
-    const [processing, setProcessing] = useState<boolean>(false);
-
-    const onFormSubmitted = async (event: any) => {
-        event.preventDefault();
-
-        setProcessing(true);
-        try {
-            const response = await authServices.login({ email, password });
-            if (response.success) {
-                props.setToken(response.token);
-            } else {
-                setErrorMessage(response.message);
-                setProcessing(false);
-            }
-        } catch {
-            setErrorMessage("Ups, please contact the team");
-            setProcessing(false);
-        }
-    };
-
-    return (
-        <>
-            {processing && <Loader isProcessing />}
-            <form
-                className={styles.loginForm}
-                onSubmit={onFormSubmitted}
-                method="post"
-            >
-                <div className={styles.inputTextWrapper}>
-                    <TextInputWithLabel
-                        labelText="Email"
-                        onChange={(e) => setEmail(e.target.value)}
-                        value={email}
-                        type={"email"}
-                        id={"email"}
-                        name={"email"}
-                        required={true}
-                    />
-                </div>
-                <div className={styles.inputTextWrapper}>
-                    <TextInputWithLabel
-                        labelText="Password"
-                        onChange={(e) => setPassword(e.target.value)}
-                        value={password}
-                        type={"password"}
-                        id={"password"}
-                        name={"password"}
-                        required={true}
-                    />
-                </div>
-
-                <div className={styles.inputCheckboxWrapper}>
-                    <CheckBoxWithLabel
-                        labelText="Remember this device"
-                        id={"remember"}
-                        name={"remember"}
-                        required={false}
-                    />
-                </div>
-
-                <div className={styles.buttonWrapper}>
-                    <ButtonGreen
-                        text={"Login"}
-                        type={"submit"}
-                        radiusSize={"radiusLg"}
-                    />
-                </div>
-
-                <div className={styles.buttonWrapper}>
-                    <ButtonWhiteWithIcon
-                        text={"Login with Google"}
-                        radiusSize={"radiusLg"}
-                    />
-                </div>
-                <p style={{ color: "red" }}>{errorMessage}</p>
-            </form>
-        </>
-    );
-}
-
-function BackButtonLarge(props: { setToken: (token: string) => void }) {
-    return (
-        <div>
-            {/* TODO: Fix props and setToken*/}
-            <Link to="/landing-page">
-                <span className={styles.BackButtonLarge}>
-                    <icons.ArrowBackRounded />
-                </span>
-            </Link>
-        </div>
-    );
-}
+import ButtonBackLarge from "../../components/button_back_large/ButtonBackLarge";
+import LoginForm from "./login_form/LoginForm";
 
 export default function LoginPage(props: {
     setToken: (token: string) => void;
 }) {
     return (
         <div className={styles.loginPage}>
-            <BackButtonLarge setToken={props.setToken} />
+            <div className={styles.buttonBackWrapper}>
+                <ButtonBackLarge linkDirection="/landing-page" />
+            </div>
             <h1 className={styles.pageHeader}>Login</h1>
             <p className={styles.createAccountNotice}>
                 New here? <Link to="/register">Create an account</Link>.
             </p>
-            <LogInForm setToken={props.setToken} />
+            <LoginForm setToken={props.setToken} />
         </div>
     );
-}
-
-interface ButtonGreenProps {
-    text?: string;
-    radiusSize: "radiusSm" | "radiusLg";
-    type?: "button" | "submit" | "reset";
-}
-
-interface ButtonWhiteWithIconProps {
-    text?: string;
-    radiusSize: "radiusSm" | "radiusLg";
-    type?: "button" | "submit" | "reset";
-    icon?: JSX.Element;
 }

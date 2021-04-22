@@ -6,6 +6,11 @@
     padding-right: 16px;
     padding-left: 16px;
 
+    .buttonBackWrapper {
+        margin-top: $m1;
+        margin-bottom: $m2;
+    }
+
     .pageHeader {
         margin-bottom: $m3;
     }
@@ -14,87 +19,4 @@
         margin-bottom: $m1;
         color: $textLight1Color;
     }
-}
-
-.loginForm {
-    color: $textDark1Color;
-
-    label {
-        margin-bottom: 1rem;
-    }
-
-    .inputTextWrapper {
-        margin-bottom: $m1;
-    }
-
-    .inputCheckboxWrapper {
-        margin-bottom: $m1;
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: flex-end;
-        align-items: center;
-
-        input {
-            margin-right: 1em;
-        }
-
-        label {
-            margin: 0;
-        }
-    }
-
-    .buttonWrapper {
-        margin-bottom: $m4;
-    }
-}
-
-.BackButtonLarge {
-    display: block;
-    background-color: $primaryDark2Color;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    margin-top: $m1;
-    margin-bottom: $m2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    svg {
-        width: 80%;
-        height: 80%;
-    }
-}
-
-.buttonGreen {
-    height: 4.4rem;
-    width: 100%;
-    background: $primaryColor;
-    color: $primaryDark1Color;
-    border: 0;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 14px;
-    cursor: pointer;
-}
-
-.radiusSm {
-    border-radius: $radius-sm;
-}
-
-.radiusLg {
-    border-radius: $radius-lg;
-}
-
-.buttonWhiteWithIcon {
-    height: 44px;
-    width: 100%;
-    background: white;
-    color: black;
-    border-radius: $radius-lg;
-    border: 0;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 14px;
-    cursor: pointer;
 }
