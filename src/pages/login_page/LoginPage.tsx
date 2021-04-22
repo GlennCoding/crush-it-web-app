@@ -6,24 +6,10 @@ import * as icons from "@material-ui/icons";
 import Loader from "../../components/loader/Loader";
 import { ids } from "webpack";
 import TextInputWithLabel from "../../components/text_input_with_label/TextInputWithLabel";
+import CheckBoxWithLabel from "../../components/check_box_with_label/CheckBoxWithLabel";
 
 function GreenButton() {
     return;
-}
-
-function CheckBoxWithLabel(props: CheckBoxWithLabelProps) {
-    const label = <label>{props.labelText}</label>;
-    return (
-        <>
-            {props.labelText && label}
-            <input
-                className={styles.inputCheckbox}
-                type="checkbox"
-                id={props.id}
-                required={props.required}
-            />
-        </>
-    );
 }
 
 function LogInForm(props: { setToken: (token: string) => void }) {
@@ -65,6 +51,7 @@ function LogInForm(props: { setToken: (token: string) => void }) {
                         value={email}
                         type={"email"}
                         id={"email"}
+                        name={"email"}
                         required={true}
                     />
                 </div>
@@ -75,6 +62,7 @@ function LogInForm(props: { setToken: (token: string) => void }) {
                         value={password}
                         type={"password"}
                         id={"password"}
+                        name={"password"}
                         required={true}
                     />
                 </div>
@@ -83,6 +71,7 @@ function LogInForm(props: { setToken: (token: string) => void }) {
                     <CheckBoxWithLabel
                         labelText="Remember this device"
                         id={"remember"}
+                        name={"remember"}
                         required={false}
                     />
                 </div>
@@ -124,19 +113,4 @@ export default function LoginPage(props: {
             <LogInForm setToken={props.setToken} />
         </div>
     );
-}
-
-interface TextInputWithLabelProps {
-    labelText?: string;
-    onChange?: (e: any) => void;
-    value?: string;
-    type?: string;
-    id?: string;
-    required?: boolean;
-}
-
-interface CheckBoxWithLabelProps {
-    labelText?: string;
-    id?: string;
-    required?: boolean;
 }

@@ -7,11 +7,11 @@
     padding-left: 16px;
 
     .pageHeader {
-        margin-bottom: 1.6rem;
+        margin-bottom: $m3;
     }
 
     .createAccountNotice {
-        margin-bottom: 3.6rem;
+        margin-bottom: $m1;
         color: $textLight1Color;
     }
 }
@@ -20,25 +20,26 @@
     color: $textDark1Color;
 
     label {
-        font-style: normal;
-        font-size: 14px;
-        line-height: 22px;
         margin-bottom: 1rem;
     }
 
     .inputTextWrapper {
-        margin-bottom: 3.6rem;
+        margin-bottom: $m1;
     }
 
     .inputCheckboxWrapper {
-        margin-bottom: 3.6rem;
+        margin-bottom: $m1;
         display: flex;
         flex-direction: row-reverse;
         justify-content: flex-end;
         align-items: center;
 
-        .inputCheckbox {
+        input {
             margin-right: 1em;
+        }
+
+        label {
+            margin: 0;
         }
     }
 
@@ -53,7 +54,7 @@
         font-weight: bold;
         font-size: 14px;
         cursor: pointer;
-        margin-bottom: 1.2rem;
+        margin-bottom: $m4;
     }
 
     .loginButtonGoogle {
@@ -86,14 +87,4 @@
         width: 80%;
         height: 80%;
     }
-}
-
-// Delete
-
-.inputCheckbox {
-    cursor: pointer;
-    height: 18px;
-    width: 18px;
-    background-color: $primaryColor;
-    margin: 0;
 }
