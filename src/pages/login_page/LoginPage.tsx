@@ -8,8 +8,35 @@ import { ids } from "webpack";
 import TextInputWithLabel from "../../components/text_input_with_label/TextInputWithLabel";
 import CheckBoxWithLabel from "../../components/check_box_with_label/CheckBoxWithLabel";
 
-function GreenButton() {
-    return;
+function ButtonGreen(props: ButtonGreenProps) {
+    return (
+        <button
+            className={`${styles.buttonGreen} ${
+                props.radiusSize === "radiusSm"
+                    ? styles.radiusSm
+                    : styles.radiusLg
+            }`}
+            type={props.type}
+        >
+            {props.text}
+        </button>
+    );
+}
+
+function ButtonWhiteWithIcon(props: ButtonWhiteWithIconProps) {
+    return (
+        <button
+            className={`${styles.buttonWhiteWithIcon} ${
+                props.radiusSize === "radiusSm"
+                    ? styles.radiusSm
+                    : styles.radiusLg
+            }`}
+            type={props.type}
+        >
+            {props.icon}
+            {props.text}
+        </button>
+    );
 }
 
 function LogInForm(props: { setToken: (token: string) => void }) {
@@ -76,12 +103,20 @@ function LogInForm(props: { setToken: (token: string) => void }) {
                     />
                 </div>
 
-                <button className={styles.loginButton} type="submit">
-                    Login
-                </button>
-                <button className={styles.loginButtonGoogle}>
-                    Login with Google
-                </button>
+                <div className={styles.buttonWrapper}>
+                    <ButtonGreen
+                        text={"Login"}
+                        type={"submit"}
+                        radiusSize={"radiusLg"}
+                    />
+                </div>
+
+                <div className={styles.buttonWrapper}>
+                    <ButtonWhiteWithIcon
+                        text={"Login with Google"}
+                        radiusSize={"radiusLg"}
+                    />
+                </div>
                 <p style={{ color: "red" }}>{errorMessage}</p>
             </form>
         </>
@@ -91,6 +126,7 @@ function LogInForm(props: { setToken: (token: string) => void }) {
 function BackButtonLarge(props: { setToken: (token: string) => void }) {
     return (
         <div>
+            {/* TODO: Fix props and setToken*/}
             <Link to="/landing-page">
                 <span className={styles.BackButtonLarge}>
                     <icons.ArrowBackRounded />
@@ -113,4 +149,17 @@ export default function LoginPage(props: {
             <LogInForm setToken={props.setToken} />
         </div>
     );
+}
+
+interface ButtonGreenProps {
+    text?: string;
+    radiusSize: "radiusSm" | "radiusLg";
+    type?: "button" | "submit" | "reset";
+}
+
+interface ButtonWhiteWithIconProps {
+    text?: string;
+    radiusSize: "radiusSm" | "radiusLg";
+    type?: "button" | "submit" | "reset";
+    icon?: JSX.Element;
 }

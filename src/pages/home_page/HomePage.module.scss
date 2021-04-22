@@ -50,7 +50,7 @@
     top: 94px;
 
     background: #80ed99;
-    border-radius: $radius2;
+    border-radius: $radius-sm;
 
     text-decoration: none;
     color: black;
@@ -70,7 +70,7 @@
         padding: 10px;
         outline: none;
         background: $primaryDark2Color;
-        border-radius: $radius 0 0 $radius;
+        border-radius: $radius-lg 0 0 $radius-lg;
         border: 0;
         color: white;
     }
@@ -81,7 +81,7 @@
         width: 40px;
         outline: none;
         cursor: pointer;
-        border-radius: 0 $radius $radius 0;
+        border-radius: 0 $radius-lg $radius-lg 0;
         border: 0;
         background: $primaryDark2Color;
 
@@ -97,7 +97,7 @@
     background-color: $primaryDark2Color;
     padding: 16px;
     margin-bottom: $m3;
-    border-radius: $radius;
+    border-radius: $radius-lg;
 
     .workoutTopWrapper {
         display: flex;
@@ -116,7 +116,7 @@
             color: white;
             height: 3.8rem;
             width: 7rem;
-            border-radius: $radius2;
+            border-radius: $radius-sm;
             font-weight: bold;
             cursor: pointer;
         }
