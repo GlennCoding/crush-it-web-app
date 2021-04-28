@@ -1,4 +1,4 @@
-@import "../../sassStyles/variables.scss";
+@import "../../sass_styles/variables.scss";
 
 .signUpPage {
     width: 100vw;
@@ -6,10 +6,9 @@
     padding-right: 16px;
     padding-left: 16px;
 
-    .pageBackButton {
-        display: block;
-        margin-top: 3.6rem;
-        margin-bottom: 1.6rem;
+    .buttonBackWrapper {
+        margin-top: $m1;
+        margin-bottom: $m2;
     }
 
     .pageHeader {
