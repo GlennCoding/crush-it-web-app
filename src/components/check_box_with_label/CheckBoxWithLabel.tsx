@@ -18,7 +18,7 @@ export default function CheckBoxWithLabel(props: CheckBoxWithLabelProps) {
 }
 
 interface CheckBoxWithLabelProps {
-    labelText?: string;
+    labelText?: string | any; // TODO: Find fitting type for JSX element
     id?: string;
     name?: string;
     required?: boolean;
