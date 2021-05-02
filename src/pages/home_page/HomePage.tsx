@@ -4,53 +4,37 @@ import Logo from "../../images/crush_it_logo/crush-it-logo-white-small.png";
 import * as icons from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import Button from "../../components/button/Button";
-
-function WorkoutInfo(props: { info: WorkoutInfo }) {
-    return (
-        <div className={styles.workoutInfo}>
-            <span>
-                {props.info.numberOfSets} Sets, {props.info.numberOfExercises}{" "}
-                Exercises
-            </span>
-        </div>
-    );
-}
-
-function WorkoutDescription(props: { description: string }) {
-    return <div className={styles.workoutDescription}>{props.description}</div>;
-}
-
-function RunWorkoutButton() {
-    return (
-        <button className={styles.runWorkoutButton}>
-            <icons.PlayArrowRounded />
-        </button>
-    );
-}
-
-function EditWorkoutButton() {
-    return <Button text="Edit" size="sm" color="dark3" />;
-}
-
-function WorkoutName(props: { name: string }) {
-    return <h5 className={styles.workoutName}>{props.name}</h5>;
-}
+import SearchBar from "../../components/search_bar/SearchBar";
 
 function WorkoutCard(props: { workoutItem: WorkoutItem }) {
     return (
         <div className={styles.workoutCard}>
             <div className={styles.workoutTopWrapper}>
-                <WorkoutName name={props.workoutItem.name} />
-                <EditWorkoutButton />
+                {/* Workout Name */}
+                <h5 className={styles.workoutName}>{props.workoutItem.name}</h5>
+                {/* Edit Workout Button */}
+                <Button text="Edit" size="sm" color="dark3" />
             </div>
             <div className={styles.workoutBottomWrapper}>
                 <div className={styles.workoutInfoWrapper}>
-                    <WorkoutDescription
-                        description={props.workoutItem.description}
-                    />
-                    <WorkoutInfo info={props.workoutItem.info} />
+                    {/* Workout Description */}
+                    <div className={styles.workoutDescription}>
+                        {props.workoutItem.description === ""
+                            ? "No Description"
+                            : props.workoutItem.description}
+                    </div>
+                    {/* Workout Info */}
+                    <div className={styles.workoutInfo}>
+                        <span>
+                            {props.workoutItem.info.numberOfSets} Sets,{" "}
+                            {props.workoutItem.info.numberOfExercises} Exercises
+                        </span>
+                    </div>
                 </div>
-                <RunWorkoutButton />
+                {/* Run Workout Button */}
+                <button className={styles.runWorkoutButton}>
+                    <icons.PlayArrowRounded />
+                </button>
             </div>
         </div>
     );
@@ -63,38 +47,12 @@ function WorkoutList(props: { workouts: WorkoutItem[] }) {
     return <div className="workoutList">{workoutItems}</div>;
 }
 
-function SearchBar() {
+function FilterableWorkoutList(props: { workouts: WorkoutItem[] }) {
     return (
-        <div className={styles.searchBarWrapper}>
-            <input
-                className={styles.searchInput}
-                type="text"
-                name="searchInput"
-                id="searchInput"
-            />
-            <button className={styles.searchButton}>
-                <icons.SearchRounded />
-            </button>
-        </div>
-    );
-}
-
-function AddWorkoutButton() {
-    return (
-        <a href="">
-            <Button text="+ Add Workout" color="primary" size="md" />
-        </a>
-    );
-}
-
-function ExtendableWorkoutList(props: { workouts: WorkoutItem[] }) {
-    return (
-        <div className="extendableWorkoutList">
-            <div className={styles.headerWrapper}>
-                <h1>Workouts</h1>
-                <AddWorkoutButton />
+        <div>
+            <div className={styles.searchBarWrapper}>
+                <SearchBar />
             </div>
-            <SearchBar />
             <WorkoutList workouts={props.workouts} />
         </div>
     );
@@ -120,7 +78,11 @@ function HomePage(props: { setToken: (token: string) => void }) {
         <div className={styles.homePage}>
             <button onClick={() => props.setToken("")}>Log Out</button>
             <Navbar />
-            <ExtendableWorkoutList workouts={workouts} />
+            <div className={styles.headerWrapper}>
+                <h1>Workouts</h1>
+                <Button text="+ Add Workout" color="primary" size="md" />
+            </div>
+            <FilterableWorkoutList workouts={workouts} />
         </div>
     );
 }
@@ -140,19 +102,19 @@ const workouts: WorkoutItem[] = [
     {
         id: 0,
         name: "Workout 1",
-        description: "No Description",
+        description: "",
         info: { numberOfSets: 8, numberOfExercises: 24 },
     },
     {
         id: 1,
         name: "Workout 2",
-        description: "No Description",
+        description: "Morning workout",
         info: { numberOfSets: 8, numberOfExercises: 24 },
     },
     {
         id: 2,
         name: "Workout 3",
-        description: "No Description",
+        description: "Evening workout",
         info: { numberOfSets: 8, numberOfExercises: 24 },
     },
 ];
