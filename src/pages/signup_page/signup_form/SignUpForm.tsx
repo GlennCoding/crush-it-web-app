@@ -5,8 +5,7 @@ import * as authServices from "../../../services/auth_services";
 import Loader from "../../../components/loader/Loader";
 import TextInputWithLabel from "../../../components/text_input_with_label/TextInputWithLabel";
 import CheckBoxWithLabel from "../../../components/check_box_with_label/CheckBoxWithLabel";
-import ButtonGreen from "../../../components/button_green/ButtonGreen";
-import ButtonWhiteWithIcon from "../../../components/button_white_with_icon/ButtonWhiteWithIcon";
+import Button from "../../../components/button/Button";
 import ErrorMessageText from "../../../components/error_message_text/ErrorMessageText";
 
 export default function SignUpForm(props: {
@@ -98,17 +97,19 @@ export default function SignUpForm(props: {
                 </div>
 
                 <div className={styles.buttonWrapper}>
-                    <ButtonGreen
-                        text={"Create account"}
-                        type={"submit"}
-                        radiusSize={"radiusLg"}
+                    <Button
+                        text="Create account"
+                        type="submit"
+                        size="lg"
+                        color="primary"
                     />
                 </div>
 
                 <div className={styles.buttonWrapper}>
-                    <ButtonWhiteWithIcon
-                        text={"Sign up with Google"}
-                        radiusSize={"radiusLg"}
+                    <Button
+                        text="Sign up with Google"
+                        color="white"
+                        size="lg"
                     />
                 </div>
             </form>

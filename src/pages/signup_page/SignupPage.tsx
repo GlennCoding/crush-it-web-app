@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./SignUpPage.module.scss";
 import ButtonBackLarge from "../../components/button_back_large/ButtonBackLarge";

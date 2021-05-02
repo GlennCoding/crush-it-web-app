@@ -1,0 +1,36 @@
+@import "../../sass_styles/variables.scss";
+
+.button {
+    border: 0;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+}
+.sm {
+    height: 3rem;
+    border-radius: $radius-sm;
+    padding-right: 25px;
+    padding-left: 25px;
+}
+
+.md {
+    height: 4.4rem;
+    border-radius: $radius-sm;
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+.lg {
+    height: 4.4rem;
+    width: 100%;
+    border-radius: $radius-lg;
+}
+.white {
+    background: white;
+    color: black;
+}
+.primary {
+    background: $primaryColor;
+    color: $primaryDark1Color;
+}

@@ -5,8 +5,7 @@ import * as authServices from "../../../services/auth_services";
 import Loader from "../../../components/loader/Loader";
 import TextInputWithLabel from "../../../components/text_input_with_label/TextInputWithLabel";
 import CheckBoxWithLabel from "../../../components/check_box_with_label/CheckBoxWithLabel";
-import ButtonGreen from "../../../components/button_green/ButtonGreen";
-import ButtonWhiteWithIcon from "../../../components/button_white_with_icon/ButtonWhiteWithIcon";
+import Button from "../../../components/button/Button";
 import ErrorMessageText from "../../../components/error_message_text/ErrorMessageText";
 
 export default function LoginForm(props: {
@@ -76,18 +75,16 @@ export default function LoginForm(props: {
                 </div>
 
                 <div className={styles.buttonWrapper}>
-                    <ButtonGreen
-                        text={"Login"}
-                        type={"submit"}
-                        radiusSize={"radiusLg"}
+                    <Button
+                        text="Login"
+                        type="submit"
+                        size="lg"
+                        color="primary"
                     />
                 </div>
 
                 <div className={styles.buttonWrapper}>
-                    <ButtonWhiteWithIcon
-                        text={"Login with Google"}
-                        radiusSize={"radiusLg"}
-                    />
+                    <Button text="Login with Google" size="lg" color="white" />
                 </div>
                 <ErrorMessageText errorMessage={errorMessage} />
             </form>
