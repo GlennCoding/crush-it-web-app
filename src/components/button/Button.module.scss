@@ -4,27 +4,29 @@
     border: 0;
     font-style: normal;
     font-weight: bold;
-    font-size: 14px;
     cursor: pointer;
 }
 .sm {
-    height: 3rem;
+    height: 4rem;
     border-radius: $radius-sm;
-    padding-right: 25px;
-    padding-left: 25px;
+    padding-right: 16px;
+    padding-left: 16px;
+    font-size: 0.9em;
 }
 
 .md {
-    height: 4.4rem;
+    height: 4.2rem;
     border-radius: $radius-sm;
-    padding-right: 30px;
-    padding-left: 30px;
+    padding-right: 16px;
+    padding-left: 16px;
+    font-size: 0.9em;
 }
 
 .lg {
     height: 4.4rem;
     width: 100%;
     border-radius: $radius-lg;
+    font-size: 14px;
 }
 .white {
     background: white;
@@ -33,4 +35,8 @@
 .primary {
     background: $primaryColor;
     color: $primaryDark1Color;
+}
+.dark3 {
+    background: $primaryDark3Color;
+    color: white;
 }

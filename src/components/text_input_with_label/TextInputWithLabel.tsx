@@ -1,7 +1,17 @@
 import React from "react";
 import styles from "./TextInputWithLabel.module.scss";
 
-export default function TextInputWithLabel(props: TextInputWithLabelProps) {
+interface TextInputWithLabelProps {
+    labelText?: string;
+    onChange?: (e: any) => void;
+    value?: string;
+    type?: string;
+    id?: string;
+    name?: string;
+    required?: boolean;
+}
+
+const TextInputWithLabel = (props: TextInputWithLabelProps) => {
     const label = <label className={styles.label}>{props.labelText}</label>;
     return (
         <>
@@ -17,14 +27,6 @@ export default function TextInputWithLabel(props: TextInputWithLabelProps) {
             />
         </>
     );
-}
+};
 
-interface TextInputWithLabelProps {
-    labelText?: string;
-    onChange?: (e: any) => void;
-    value?: string;
-    type?: string;
-    id?: string;
-    name?: string;
-    required?: boolean;
-}
+export default TextInputWithLabel;

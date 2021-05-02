@@ -3,6 +3,7 @@ import styles from "./HomePage.module.scss";
 import Logo from "../../images/crush_it_logo/crush-it-logo-white-small.png";
 import * as icons from "@material-ui/icons";
 import { Link } from "react-router-dom";
+import Button from "../../components/button/Button";
 
 function WorkoutInfo(props: { info: WorkoutInfo }) {
     return (
@@ -28,7 +29,7 @@ function RunWorkoutButton() {
 }
 
 function EditWorkoutButton() {
-    return <button className={styles.editWorkoutButton}>Edit</button>;
+    return <Button text="Edit" size="sm" color="dark3" />;
 }
 
 function WorkoutName(props: { name: string }) {
@@ -81,7 +82,7 @@ function SearchBar() {
 function AddWorkoutButton() {
     return (
         <a href="">
-            <div className={styles.addWorkoutButton}>+ Add Workout</div>
+            <Button text="+ Add Workout" color="primary" size="md" />
         </a>
     );
 }

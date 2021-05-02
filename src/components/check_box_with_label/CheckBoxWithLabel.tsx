@@ -1,7 +1,14 @@
 import React from "react";
 import styles from "./CheckBoxWithLabel.module.scss";
 
-export default function CheckBoxWithLabel(props: CheckBoxWithLabelProps) {
+interface CheckBoxWithLabelProps {
+    labelText?: string | any; // TODO: Find fitting type for JSX element
+    id?: string;
+    name?: string;
+    required?: boolean;
+}
+
+const CheckBoxWithLabel = (props: CheckBoxWithLabelProps) => {
     const label = <label>{props.labelText}</label>;
     return (
         <>
@@ -15,11 +22,6 @@ export default function CheckBoxWithLabel(props: CheckBoxWithLabelProps) {
             />
         </>
     );
-}
+};
 
-interface CheckBoxWithLabelProps {
-    labelText?: string | any; // TODO: Find fitting type for JSX element
-    id?: string;
-    name?: string;
-    required?: boolean;
-}
+export default CheckBoxWithLabel;
