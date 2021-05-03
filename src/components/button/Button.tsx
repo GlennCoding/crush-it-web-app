@@ -1,4 +1,3 @@
-import { BorderAll } from "@material-ui/icons";
 import React from "react";
 import styles from "./Button.module.scss";
 
