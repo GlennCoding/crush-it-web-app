@@ -3,6 +3,7 @@ import HomePage from "./pages/home_page/HomePage";
 import LandingPage from "./pages/landing_page/LandingPage";
 import SignupPage from "./pages/signup_page/SignupPage";
 import LoginPage from "./pages/login_page/LoginPage";
+import WorkoutEditPage from "./pages/workout_edit_page/WorkoutEditPage";
 import { BrowserRouter, Route, Link, Switch, Redirect } from "react-router-dom";
 import { useToken } from "./hooks/useToken";
 export default function App() {
@@ -10,7 +11,7 @@ export default function App() {
 
   console.log(token);
   return (
-    <div>
+    <main>
       {/* <BrowserRouter>
                 <Switch>
                     <Route
@@ -70,7 +71,10 @@ export default function App() {
                     />
                 </Switch>
             </BrowserRouter> */}
-      <HomePage />
-    </div>
+
+      {/* SE_20 Web Frontend Technologies Presentation */}
+      {/* <HomePage /> */}
+      <WorkoutEditPage name="Workout 1" description="Amazing Workout" />
+    </main>
   );
 }
