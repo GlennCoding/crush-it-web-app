@@ -6,12 +6,12 @@ import LoginPage from "./pages/login_page/LoginPage";
 import { BrowserRouter, Route, Link, Switch, Redirect } from "react-router-dom";
 import { useToken } from "./hooks/useToken";
 export default function App() {
-    const { token, setToken } = useToken();
+  const { token, setToken } = useToken();
 
-    console.log(token);
-    return (
-        <div>
-            <BrowserRouter>
+  console.log(token);
+  return (
+    <div>
+      {/* <BrowserRouter>
                 <Switch>
                     <Route
                         exact
@@ -69,7 +69,8 @@ export default function App() {
                         }}
                     />
                 </Switch>
-            </BrowserRouter>
-        </div>
-    );
+            </BrowserRouter> */}
+      <HomePage />
+    </div>
+  );
 }
