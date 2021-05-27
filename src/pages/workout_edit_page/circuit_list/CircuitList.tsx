@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./CircuitList.module.scss";
 import Circuit from "./circuit/Circuit";
+import Button from "../../../components/button/Button";
 
 interface Exercise {
   name: string;
@@ -46,6 +47,27 @@ const CircuitList: React.FC<CircuitListProps> = ({ data }) => {
     }
     setCircuits([...newCircuits]);
   };
+  const addNewExercise = (index: number) => {
+    const newExercise = {
+      name: "Burpees",
+      reps_amount: 20,
+      exercise_type: "reps",
+      break_sec: 30,
+    };
+    const newCircuits = circuits;
+    newCircuits[index].exercises.push(newExercise);
+    console.log(index);
+    setCircuits([...newCircuits]);
+  };
+  const addNewCircuit = () => {
+    const newCircuit = {
+      id: circuits.length,
+      setAmount: 1,
+      exercises: [],
+      timeBetweenSetsSec: 0,
+    };
+    setCircuits(circuits.concat(newCircuit));
+  };
   return (
     <div className={styles.circuitList}>
       {circuits.map((circuit, index) => {
@@ -61,9 +83,13 @@ const CircuitList: React.FC<CircuitListProps> = ({ data }) => {
             timeBetweenSetsSec={timeBetweenSetsSec}
             changeSetAmount={changeSetAmount}
             changeTimeBetweenSetSec={changeTimeBetweenSetSec}
+            addNewExercise={addNewExercise}
           />
         );
       })}
+      <div onClick={() => addNewCircuit()}>
+        <Button color="dark2" size="lg" text="+ Add Circuit" />
+      </div>
     </div>
   );
 };

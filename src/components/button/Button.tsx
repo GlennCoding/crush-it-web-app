@@ -4,7 +4,7 @@ import styles from "./Button.module.scss";
 interface ButtonProps {
   text?: string;
   size: "sm" | "md" | "lg";
-  color: "primary" | "white" | "dark3";
+  color: "primary" | "white" | "dark2" | "dark3";
   type?: "button" | "submit" | "reset";
   icon?: JSX.Element;
   children?: () => JSX.Element | null;
@@ -32,6 +32,9 @@ const Button = (props: ButtonProps) => {
       break;
     case "primary":
       color = styles.primary;
+      break;
+    case "dark2":
+      color = styles.dark2;
       break;
     case "dark3":
       color = styles.dark3;

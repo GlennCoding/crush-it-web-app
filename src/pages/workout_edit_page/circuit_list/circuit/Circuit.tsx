@@ -18,6 +18,7 @@ interface CircuitProps {
   timeBetweenSetsSec: number;
   changeSetAmount: (id: number, operation: "add" | "remove") => void;
   changeTimeBetweenSetSec: (id: number, operation: "add" | "remove") => void;
+  addNewExercise: (index: number) => void;
 }
 
 const Circuit: React.FC<CircuitProps> = ({
@@ -28,6 +29,7 @@ const Circuit: React.FC<CircuitProps> = ({
   timeBetweenSetsSec,
   changeSetAmount,
   changeTimeBetweenSetSec,
+  addNewExercise,
 }) => {
   return (
     <div className={styles.circuit}>
@@ -60,7 +62,9 @@ const Circuit: React.FC<CircuitProps> = ({
             </div>
           );
         })}
-        <Button color="dark3" size="lg" text="+ Add Exercise" />
+        <div onClick={() => addNewExercise(index)}>
+          <Button color="dark3" size="lg" text="+ Add Exercise" />
+        </div>
       </div>
       {/* Circuit Bottom Row */}
       <div className={styles.bottomRow}>
