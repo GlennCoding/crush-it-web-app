@@ -56,12 +56,11 @@ const CircuitList: React.FC<CircuitListProps> = ({ data }) => {
     };
     const newCircuits = circuits;
     newCircuits[index].exercises.push(newExercise);
-    console.log(index);
     setCircuits([...newCircuits]);
   };
   const addNewCircuit = () => {
     const newCircuit = {
-      id: circuits.length,
+      id: circuits.length + 1,
       setAmount: 1,
       exercises: [],
       timeBetweenSetsSec: 0,
@@ -72,7 +71,6 @@ const CircuitList: React.FC<CircuitListProps> = ({ data }) => {
     <div className={styles.circuitList}>
       {circuits.map((circuit, index) => {
         const { id, setAmount, exercises, timeBetweenSetsSec } = circuit;
-        console.log("Set Amount " + setAmount);
         return (
           <Circuit
             key={id}
