@@ -12,69 +12,62 @@ export default function App() {
   console.log(token);
   return (
     <main>
-      {/* <BrowserRouter>
-                <Switch>
-                    <Route
-                        exact
-                        path="/home"
-                        render={() => {
-                            return token ? (
-                                <HomePage setToken={setToken} />
-                            ) : (
-                                <Redirect to="/landing-page" />
-                            );
-                        }}
-                    />
-                    <Route
-                        exact
-                        path="/register"
-                        render={() => {
-                            return token ? (
-                                <Redirect to="/home" />
-                            ) : (
-                                <SignupPage setToken={setToken} />
-                            );
-                        }}
-                    />
-                    <Route
-                        exact
-                        path="/login"
-                        render={() => {
-                            return token ? (
-                                <Redirect to="/home" />
-                            ) : (
-                                <LoginPage setToken={setToken} />
-                            );
-                        }}
-                    />
-                    <Route
-                        exact
-                        path="/landing-page"
-                        render={() => {
-                            return token ? (
-                                <Redirect to="/home" />
-                            ) : (
-                                <LandingPage />
-                            );
-                        }}
-                    />
-                    <Route
-                        exact
-                        path="/"
-                        render={() => {
-                            return token ? (
-                                <Redirect to="/home" />
-                            ) : (
-                                <Redirect to="/landing-page" />
-                            );
-                        }}
-                    />
-                </Switch>
-            </BrowserRouter> */}
-
-      {/* SE_20 Web Frontend Technologies Presentation */}
-      {/* <HomePage /> */}
-      <WorkoutEditPage name="Workout 1" description="Amazing Workout" />
+      <BrowserRouter>
+        <Switch>
+          <Route
+            exact
+            path="/home"
+            render={() => {
+              return token ? (
+                <HomePage setToken={setToken} />
+              ) : (
+                <Redirect to="/landing-page" />
+              );
+            }}
+          />
+          <Route
+            exact
+            path="/register"
+            render={() => {
+              return token ? (
+                <Redirect to="/home" />
+              ) : (
+                <SignupPage setToken={setToken} />
+              );
+            }}
+          />
+          <Route
+            exact
+            path="/login"
+            render={() => {
+              return token ? (
+                <Redirect to="/home" />
+              ) : (
+                <LoginPage setToken={setToken} />
+              );
+            }}
+          />
+          <Route
+            exact
+            path="/landing-page"
+            render={() => {
+              return token ? <Redirect to="/home" /> : <LandingPage />;
+            }}
+          />
+          <Route
+            exact
+            path="/"
+            render={() => {
+              return token ? (
+                <Redirect to="/home" />
+              ) : (
+                <Redirect to="/landing-page" />
+              );
+            }}
+          />
+        </Switch>
+      </BrowserRouter>
+      {/* <WorkoutEditPage name="Workout 1" description="Amazing Workout" /> */}
     </main>
   );
 }
