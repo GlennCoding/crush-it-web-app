@@ -5,7 +5,7 @@ import data from "./circuits";
 import CircuitList from "./circuit_list/CircuitList";
 
 interface WorkoutEditPageProps {
-  name: string;
+  name?: string;
   description?: string;
 }
 

@@ -16,13 +16,27 @@ export default function App() {
         <Switch>
           <Route
             exact
-            path="/home"
+            path="/edit"
             render={() => {
               return token ? (
-                <HomePage setToken={setToken} />
+                <WorkoutEditPage />
               ) : (
                 <Redirect to="/landing-page" />
               );
+            }}
+          />
+          <Route
+            exact
+            path="/home"
+            // render={() => {
+            //   return token ? (
+            //     <HomePage setToken={setToken} />
+            //   ) : (
+            //     <Redirect to="/landing-page" />
+            //   );
+            // }}
+            render={() => {
+              return <HomePage setToken={setToken} />;
             }}
           />
           <Route

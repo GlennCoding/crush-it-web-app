@@ -1,4 +1,4 @@
-![Crush It Cover](./src/images/crush_it_cover.png)
+![Crush It Cover](./client/src/images/crush_it_cover.png)
 
 <div align="center">
 
@@ -17,6 +17,7 @@ A web app that lets you create, edit and run workouts. Built with React.js and T
 
 ## Table of contents
 
+- [Table of contents](#table-of-contents)
 - [General Info](#general-info)
 - [Screenshots](#screenshots)
 - [Technologies](#technologies)
@@ -31,7 +32,7 @@ This is not a real-world project but the purpose of the project is to gain more 
 
 ## Screenshots
 
-![Crush It Demo](src/images/crush_it_demo.png)
+![Crush It Demo](./client/src/images/crush_it_demo.png)
 
 ## Technologies
 
