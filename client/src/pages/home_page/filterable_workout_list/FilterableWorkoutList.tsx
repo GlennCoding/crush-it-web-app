@@ -34,13 +34,6 @@ const FilterableWorkoutList: React.FC<FilterableWorkoutListProps> = ({
         <SearchBar value={value} handleChange={handleChange} />
       </div>
       <div className="workoutList">
-        {/* {workouts.filter((workout) =>
-          workout.name
-            .includes(value)
-            .map((filteredWorkout: any) => (
-              <WorkoutCard key={filteredWorkout.id} {...filteredWorkout} />
-            ))
-        )} */}
         {workouts.map(
           (workout) =>
             workout.name.includes(value) && (
