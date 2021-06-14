@@ -1,139 +1,60 @@
 @import "../../sass_styles/variables.scss";
 
 .homePage {
-    width: 100vw;
-    height: 100vh;
-    padding-right: 16px;
-    padding-left: 16px;
+  width: 100vw;
+  height: 100vh;
+  padding-right: 16px;
+  padding-left: 16px;
 
-    .headerWrapper {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: $m2;
-    }
-}
-
-.nav {
-    display: flex;
-    margin-top: $m1;
-    margin-bottom: $m1;
+  .headerWrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: $m2;
+  }
+}
 
-    .navLogo {
-        height: 60px;
-        padding: 6px;
+.nav {
+  display: flex;
+  margin-top: $m1;
+  margin-bottom: $m1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-        img {
-            height: 100%;
-        }
+  .navLogo {
+    height: 60px;
+    padding: 6px;
+
+    img {
+      height: 100%;
     }
+  }
 
-    .navProfile {
-        color: white;
-        width: 60px;
-        height: 60px;
-    }
+  .navProfile {
+    color: white;
+    width: 60px;
+    height: 60px;
+  }
 }
 
 .addWorkoutButton {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 
-    width: 13rem;
-    height: 4rem;
-    left: 242px;
-    top: 94px;
+  width: 13rem;
+  height: 4rem;
+  left: 242px;
+  top: 94px;
 
-    background: #80ed99;
-    border-radius: $radius-sm;
+  background: #80ed99;
+  border-radius: $radius-sm;
 
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-    font-size: 0.9em;
-    white-space: nowrap;
-}
-
-.searchBarWrapper {
-    margin-bottom: $m2;
-}
-
-.workoutCard {
-    background-color: $primaryDark2Color;
-    padding: 16px;
-    margin-bottom: $m3;
-    border-radius: $radius-lg;
-
-    .workoutTopWrapper {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 10px;
-
-        .workoutName {
-            color: $primaryColor;
-            margin: 0;
-        }
-
-        .editWorkoutButton {
-            background-color: $primaryDark3Color;
-            border: 0;
-            color: white;
-            height: 3.8rem;
-            width: 7rem;
-            border-radius: $radius-sm;
-            font-weight: bold;
-            cursor: pointer;
-        }
-    }
-
-    .workoutBottomWrapper {
-        display: flex;
-
-        .workoutInfoWrapper {
-            flex: 1 1 auto;
-            min-width: 0;
-
-            .workoutDescription {
-                color: white;
-                margin-bottom: 10px;
-                height: 40px;
-                line-height: 1.3em;
-                overflow: hidden;
-                word-wrap: break-word;
-                text-overflow: ellipsis;
-            }
-
-            .workoutInfo {
-                color: $textLight1Color;
-            }
-        }
-
-        .runWorkoutButton {
-            flex: 0 1 auto;
-            align-self: flex-end;
-            background-color: $primaryDark1Color;
-            border: 0;
-            margin-left: 30px;
-            width: 5.5rem;
-            height: 5.5rem;
-            border-radius: 50%;
-            color: $primaryColor;
-            cursor: pointer;
-            padding: 0ch;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            svg {
-                height: 80%;
-                width: 80%;
-            }
-        }
-    }
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 0.9em;
+  white-space: nowrap;
 }
