@@ -73,10 +73,10 @@ function Navbar() {
   );
 }
 
-function HomePage(props: { setToken?: (token: string) => void }) {
+function HomePage(props: { setToken: (token: string) => void }) {
   return (
     <div className={styles.homePage}>
-      {/* <button onClick={() => props.setToken("")}>Log Out</button> */}
+      <button onClick={() => props.setToken("")}>Log Out</button>
       <Navbar />
       <div className={styles.headerWrapper}>
         <h1>Workouts</h1>
