@@ -5,5 +5,6 @@ import "./sass_styles/typography.scss";
 import App from "./App";
 import axios from "axios";
 
-axios.defaults.baseURL = "https://api-crush-it.herokuapp.com";
+axios.defaults.baseURL = "http://localhost:8000";
+
 ReactDOM.render(<App />, document.getElementById("root"));
