@@ -18,7 +18,8 @@ const register = async (user: {
   try {
     response = await axios.post("/auth/register", body, config);
   } catch (e) {
-    console.log(`user_services[register] failed: ${e}`);
+    console.log(e);
+
     return;
   }
 
@@ -38,7 +39,7 @@ const login = async (user: { email: string; password: string }) => {
   try {
     response = await axios.post("/auth/login", body, config);
   } catch (e) {
-    console.log(`user_services[register] failed: ${e}`);
+    console.log(e);
     return;
   }
 

@@ -1,7 +1,7 @@
 import mongoose, {Schema, Types} from "mongoose"
 
 const exerciseSchema = new Schema({
-  name: {type: String, required: true, unique: true},
+  name: {type: String, required: true, unique: false},
   muscleGroup: {type: String, required: true}
 })
 

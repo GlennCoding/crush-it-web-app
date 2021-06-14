@@ -7,6 +7,7 @@ import SignUpForm from "./signup_form/SignUpForm";
 export default function SignupPage(props: {
     setToken: (token: string) => void;
 }) {
+    
     return (
         <div className={styles.signUpPage}>
             <div className={styles.buttonBackWrapper}>

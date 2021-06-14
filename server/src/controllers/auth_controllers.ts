@@ -26,7 +26,7 @@ const register = async (req: Request, res: Response) => {
 
   const existingUser = await userServices.getUserByEmail(email)
   if (existingUser)
-    return res.status(409).json({
+    return res.json({
       success: false,
       message: `User with the email ${email} exists already`
     })
