@@ -1,4 +1,4 @@
-![Crush It Cover](./src/images/crush_it_cover.png)
+![Crush It Cover](./client/src/images/crush_it_cover.png)
 
 <div align="center">
 
@@ -17,6 +17,7 @@ A web app that lets you create, edit and run workouts. Built with React.js and T
 
 ## Table of contents
 
+- [Table of contents](#table-of-contents)
 - [General Info](#general-info)
 - [Screenshots](#screenshots)
 - [Technologies](#technologies)
@@ -30,7 +31,8 @@ Crush-It is a workout builder which helps sportsmen build their workouts fast an
 This is not a real-world project but the purpose of the project is to gain more technical knowledge in the fields of front-end and back-end. My project partner and I are doing it because we want to become very fast at building MVPs. So The only purpose of the project is to become better and quicker at building MVPs.
 
 ## Screenshots
-![Crush It Demo](src/images/crush_it_demo.png)
+
+![Crush It Demo](./client/src/images/crush_it_demo.png)
 
 ## Technologies
 
@@ -53,6 +55,7 @@ $ npm start
 ## Features
 
 List of features ready and TODOs for future development
+
 - Create, edit and delete workouts
 - Add and modify circuits, exercises and breaks
 - Overview workouts on the homepage
@@ -60,6 +63,7 @@ List of features ready and TODOs for future development
 - ...
 
 To-do list:
+
 - Workout player
 
 ---
