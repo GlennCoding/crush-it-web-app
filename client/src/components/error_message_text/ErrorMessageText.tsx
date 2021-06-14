@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 import styles from "./ErrorMessageText.module.scss";
 
-const ErrorMessageText = (props: { errorMessage: string }) => {
-    return <p className={styles.errorMessageText}>{props.errorMessage}</p>;
+interface ErrorMessageTextProps {
+  errorMessage: string;
+}
+
+const ErrorMessageText: React.FC<ErrorMessageTextProps> = ({
+  errorMessage,
+}) => {
+  return <p className={styles.errorMessageText}>{errorMessage}</p>;
 };
 
 export default ErrorMessageText;

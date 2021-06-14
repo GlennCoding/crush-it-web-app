@@ -4,7 +4,7 @@ import LandingPage from "./pages/landing_page/LandingPage";
 import SignupPage from "./pages/signup_page/SignupPage";
 import LoginPage from "./pages/login_page/LoginPage";
 import WorkoutEditPage from "./pages/workout_edit_page/WorkoutEditPage";
-import { BrowserRouter, Route, Link, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { useToken } from "./hooks/useToken";
 export default function App() {
   const { token, setToken } = useToken();
@@ -17,13 +17,9 @@ export default function App() {
           <Route
             exact
             path="/edit"
-            render={() => {
-              return token ? (
-                <WorkoutEditPage />
-              ) : (
-                <Redirect to="/landing-page" />
-              );
-            }}
+            render={() => (
+              <WorkoutEditPage name="Workout 1" description="Morning Workout" />
+            )}
           />
           <Route
             exact

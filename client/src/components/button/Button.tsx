@@ -10,11 +10,15 @@ interface ButtonProps {
   children?: () => JSX.Element | null;
 }
 
-const Button = (props: ButtonProps) => {
-  let size;
-  let color;
-
-  switch (props.size) {
+const Button: React.FC<ButtonProps> = ({
+  text,
+  size,
+  color,
+  type,
+  icon,
+  children,
+}) => {
+  switch (size) {
     case "sm":
       size = styles.sm;
       break;
@@ -26,7 +30,7 @@ const Button = (props: ButtonProps) => {
       break;
   }
 
-  switch (props.color) {
+  switch (color) {
     case "white":
       color = styles.white;
       break;
@@ -42,9 +46,9 @@ const Button = (props: ButtonProps) => {
   }
 
   return (
-    <button className={`${styles.button} ${size} ${color}`} type={props.type}>
-      {props.icon}
-      {props.text}
+    <button className={`${styles.button} ${size} ${color}`} type={type}>
+      {icon}
+      {text}
     </button>
   );
 };

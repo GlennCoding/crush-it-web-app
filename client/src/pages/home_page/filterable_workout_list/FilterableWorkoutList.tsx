@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./FilterableWorkoutList.module.scss";
 import SearchBar from "../../../components/search_bar/SearchBar";
 import WorkoutCard from "./workout_card/WorkoutCard";
@@ -22,10 +22,16 @@ interface FilterableWorkoutListProps {
 const FilterableWorkoutList: React.FC<FilterableWorkoutListProps> = ({
   workouts,
 }) => {
+  const [value, setValue] = useState<string>("");
+
+  const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
+    setValue(e.currentTarget.value);
+  };
+  console.log(value);
   return (
     <div>
       <div className={styles.searchBarWrapper}>
-        <SearchBar />
+        <SearchBar value={value} handleChange={handleChange} />
       </div>
       <div className="workoutList">
         {workouts.map((workout) => (

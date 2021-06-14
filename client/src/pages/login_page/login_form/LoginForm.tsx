@@ -8,9 +8,11 @@ import CheckBoxWithLabel from "../../../components/check_box_with_label/CheckBox
 import Button from "../../../components/button/Button";
 import ErrorMessageText from "../../../components/error_message_text/ErrorMessageText";
 
-export default function LoginForm(props: {
+interface LoginFormProps {
   setToken: (token: string) => void;
-}) {
+}
+
+const LoginForm: React.FC<LoginFormProps> = ({ setToken }) => {
   const [email, setEmail] = useState<string>(
     "giorgi.sharashenidze@code.berlin"
   );
@@ -28,7 +30,7 @@ export default function LoginForm(props: {
       setProcessing(false);
     } else {
       if (response.success) {
-        props.setToken(response.token);
+        setToken(response.token);
       } else {
         setErrorMessage(response.message);
         setProcessing(false);
@@ -87,4 +89,5 @@ export default function LoginForm(props: {
       </form>
     </>
   );
-}
+};
+export default LoginForm;

@@ -1,34 +1,38 @@
 @import "../../sass_styles/variables.scss";
 
 .searchBar {
+  width: 100%;
+
+  .searchForm {
     width: 100%;
     display: flex;
 
     .searchInput {
-        height: 4.8rem;
-        width: 100%;
-        padding: 10px;
-        outline: none;
-        background: $primaryDark2Color;
-        border-radius: $radius-lg 0 0 $radius-lg;
-        border: 0;
-        color: white;
+      height: 4.8rem;
+      width: 100%;
+      padding: 10px;
+      outline: none;
+      background: $primaryDark2Color;
+      border-radius: $radius-lg 0 0 $radius-lg;
+      border: 0;
+      color: white;
     }
 
     .searchButton {
-        text-align: center;
-        height: 4.8rem;
-        width: 40px;
-        outline: none;
-        cursor: pointer;
-        border-radius: 0 $radius-lg $radius-lg 0;
-        border: 0;
-        background: $primaryDark2Color;
+      text-align: center;
+      height: 4.8rem;
+      width: 40px;
+      outline: none;
+      cursor: pointer;
+      border-radius: 0 $radius-lg $radius-lg 0;
+      border: 0;
+      background: $primaryDark2Color;
 
-        svg {
-            color: $textDark1Color;
-            height: 1.8em;
-            width: 1.8em;
-        }
+      svg {
+        color: $textDark1Color;
+        height: 1.8em;
+        width: 1.8em;
+      }
     }
+  }
 }
