@@ -1,0 +1,29 @@
+@import "../../sass_styles/variables.scss";
+
+.page {
+  width: 100vw;
+  height: 100vh;
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+.navbar {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .icon {
+    height: 44px;
+    width: 44px;
+  }
+
+  p {
+    margin: 1rem 0 0 0;
+  }
+}

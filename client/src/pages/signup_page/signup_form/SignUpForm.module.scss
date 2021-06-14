@@ -1,0 +1,29 @@
+@import "../../../sass_styles/variables.scss";
+
+.signUpForm {
+    color: $textDark1Color;
+
+    .inputTextWrapper {
+        margin-bottom: $m1;
+    }
+
+    .inputCheckboxWrapper {
+        margin-bottom: $m1;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        align-items: center;
+
+        input {
+            margin-right: 1em;
+        }
+
+        label {
+            margin: 0;
+        }
+    }
+
+    .buttonWrapper {
+        margin-bottom: $m4;
+    }
+}

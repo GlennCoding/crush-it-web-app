@@ -1,0 +1,38 @@
+// Screen sizes
+$media-sm: 576px;
+$media-md: 768px;
+$media-lg: 992px;
+$media-xl: 1200px;
+$media-xxl: 1300px;
+$media-full: 1400px;
+
+// Font sizes
+$font-size: 14px;
+$font-size-sm: 10px;
+$font-size-md: 18px;
+$font-size-lg: 24px;
+$font-size-xl: 32px;
+$font-size-xxl: 38px;
+
+// Colors
+$textColor: #ffffff;
+$textLight1Color: #c4c4c4;
+$textDark1Color: #757575;
+
+$primaryColor: #80ed99;
+$primaryDark1Color: #232121;
+$primaryDark2Color: #323232;
+$primaryDark3Color: #424242;
+$secondaryColor: #ffffff;
+
+// Margins
+$m1: 3.8rem;
+$m2: 2.6rem;
+$m3: 1.6rem;
+$m4: 1.2rem;
+
+// Other
+$linkPrimary: $primaryColor;
+
+$radius-sm: 5px;
+$radius-lg: 10px;
