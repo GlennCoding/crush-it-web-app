@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import styles from "./FilterableWorkoutList.module.scss";
 import SearchBar from "../../../components/search_bar/SearchBar";
 import WorkoutCard from "./workout_card/WorkoutCard";
@@ -22,7 +22,7 @@ const filterableWorkoutList: React.FC<Props> = ({
     setCurrentWorkoutName(e.currentTarget.value);
   };
 
-  const componentDidMount = async () => {
+  const setWorkouts = async () => {
     const config = {
       headers: {
         authorization: `Bearer ${tokenArgs.value}`,
@@ -35,12 +35,16 @@ const filterableWorkoutList: React.FC<Props> = ({
       return console.log(`Couldn't retrieve workout list. ${e}`);
     }
     // console.log(response.data);
-    if (response.data.success) { 
+    if (response.data.success) {
       setWorkoutList(response.data.workouts);
     }
   };
 
-  useState(componentDidMount);
+  const componentDidMount = () => {
+    setWorkouts();
+  };
+
+  useEffect(componentDidMount, []);
 
   return (
     <div>

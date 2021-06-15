@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./WorkoutEditPage.module.scss";
 import * as icons from "@material-ui/icons";
 import data from "./circuits";
@@ -16,6 +16,8 @@ const WorkoutEditPage: React.FC<WorkoutEditPageProps> = ({
   description,
   workoutId,
 }) => {
+  const componentDidMount = () => {};
+  useEffect(componentDidMount, []);
   return (
     <div className={styles.page}>
       {/* Navbar */}
