@@ -20,26 +20,26 @@ const SignUpForm: React.FC<SignupFormProps> = ({ setToken }) => {
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [processing, setProcessing] = useState<boolean>(false);
 
-
   const onFormSubmitted = async (event: any) => {
     event.preventDefault();
     setProcessing(true);
     console.log(email, password, name);
-    try {
-      const response = await authServices.register({
-        email,
-        name,
-        password,
-      });
+
+    const response = await authServices.register({
+      email,
+      name,
+      password,
+    });
+    if (!response) {
+      setErrorMessage("Ups, please contact the team");
+      setProcessing(false);
+    } else {
       if (response.success) {
         setToken(response.token);
       } else {
         setErrorMessage(response.message);
         setProcessing(false);
       }
-    } catch {
-      setErrorMessage("Ups, please contact the team");
-      setProcessing(false);
     }
   };
 
