@@ -7,7 +7,6 @@ import TextInputWithLabel from "../../../components/text_input_with_label/TextIn
 import CheckBoxWithLabel from "../../../components/check_box_with_label/CheckBoxWithLabel";
 import Button from "../../../components/button/Button";
 import ErrorMessageText from "../../../components/error_message_text/ErrorMessageText";
-import { responsiveFontSizes } from "@material-ui/core";
 
 interface SignupFormProps {
   setToken: (token: string) => void;

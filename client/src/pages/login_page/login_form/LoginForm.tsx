@@ -13,10 +13,8 @@ interface LoginFormProps {
 }
 
 const LoginForm: React.FC<LoginFormProps> = ({ setToken }) => {
-  const [email, setEmail] = useState<string>(
-    "giorgi.sharashenidze@code.berlin"
-  );
-  const [password, setPassword] = useState<string>("shara123");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [processing, setProcessing] = useState<boolean>(false);
 

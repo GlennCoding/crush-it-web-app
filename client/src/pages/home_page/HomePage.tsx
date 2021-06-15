@@ -1,37 +1,52 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import styles from "./HomePage.module.scss";
 import Logo from "../../images/crush_it_logo/crush-it-logo-white-small.png";
 import * as icons from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import Button from "../../components/button/Button";
+import { WorkoutItem } from "../../interfaces/workout_item";
 import FilterableWorkoutList from "./filterable_workout_list/FilterableWorkoutList";
-import data from "./data";
+import { TokenContext } from "../../context/token_context";
+import workouts from "./data";
+interface Props {}
 
-interface HomePageProps {
-  setToken: (token: string) => void;
-}
-
-const HomePage: React.FC<HomePageProps> = ({ setToken }) => {
+const homePage: React.FC<Props> = () => {
+  const [currentWorkoutList, setCurrentWorkoutList] = useState<WorkoutItem[]>(
+    []
+  );
+  const tokenContext = useContext(TokenContext);
   return (
     <div className={styles.homePage}>
-      <button onClick={() => setToken("")}>Log Out</button>
+      <button onClick={() => tokenContext.set("")}>Log Out</button>
       <nav className={styles.nav}>
         <span className={styles.navLogo}>
           <a href="#">
             <img src={Logo} alt="Crush It Logo" />
           </a>
         </span>
-        <Link to="#">
+        <Link to={"/profile"}>
           <icons.AccountCircleRounded className={styles.navProfile} />
         </Link>
       </nav>
       <div className={styles.headerWrapper}>
         <h1>Workouts</h1>
-        <Button text="+ Add Workout" color="primary" size="md" />
+        <Link
+          to={{
+            pathname: "/edit-workout",
+            state: {
+              workoutId: null,
+            },
+          }}
+        >
+          <Button text="+ Add Workout" color="primary" size="md" />
+        </Link>
       </div>
-      <FilterableWorkoutList workouts={data} />
+      <FilterableWorkoutList
+        setWorkoutList={setCurrentWorkoutList}
+        workouts={currentWorkoutList}
+      />
     </div>
   );
 };
 
-export default HomePage;
+export default homePage;
