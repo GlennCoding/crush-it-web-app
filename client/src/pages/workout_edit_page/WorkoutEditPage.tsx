@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./WorkoutEditPage.module.scss";
 import * as icons from "@material-ui/icons";
 import data from "./circuits";

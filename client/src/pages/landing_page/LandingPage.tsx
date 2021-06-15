@@ -3,7 +3,7 @@ import styles from "./LandingPage.module.scss";
 import Logo from "../../images/crush_it_logo/crush-it-logo-black-normal.png";
 import { Link } from "react-router-dom";
 
-export default function LandingPage() {
+const LandingPage = () => {
   return (
     <div className={styles.landingPage}>
       <div className={styles.logoWrapper}>
@@ -19,4 +19,6 @@ export default function LandingPage() {
       </div>
     </div>
   );
-}
+};
+
+export default LandingPage;

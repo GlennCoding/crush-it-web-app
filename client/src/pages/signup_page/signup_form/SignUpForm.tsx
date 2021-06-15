@@ -9,33 +9,37 @@ import Button from "../../../components/button/Button";
 import ErrorMessageText from "../../../components/error_message_text/ErrorMessageText";
 import { responsiveFontSizes } from "@material-ui/core";
 
-export default function SignUpForm(props: {
+interface SignupFormProps {
   setToken: (token: string) => void;
-}) {
-  const [name, setName] = useState<string>("Giorgi Sharashenidze");
-  const [email, setEmail] = useState<string>("giorgi@code.berlin");
-  const [password, setPassword] = useState<string>("123456");
+}
+
+const SignUpForm: React.FC<SignupFormProps> = ({ setToken }) => {
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [processing, setProcessing] = useState<boolean>(false);
+
 
   const onFormSubmitted = async (event: any) => {
     event.preventDefault();
     setProcessing(true);
-
-    const response = await authServices.register({
-      email,
-      name,
-      password,
-    });
-    if (!response) {
-      setErrorMessage("Something went wrong, please contact the admin.");
-      setProcessing(false);
-    } else {
-      if (response.success) props.setToken(response.token);
-      else {
+    console.log(email, password, name);
+    try {
+      const response = await authServices.register({
+        email,
+        name,
+        password,
+      });
+      if (response.success) {
+        setToken(response.token);
+      } else {
         setErrorMessage(response.message);
         setProcessing(false);
       }
+    } catch {
+      setErrorMessage("Ups, please contact the team");
+      setProcessing(false);
     }
   };
 
@@ -109,4 +113,6 @@ export default function SignUpForm(props: {
       <ErrorMessageText errorMessage={errorMessage} />
     </>
   );
-}
+};
+
+export default SignUpForm;

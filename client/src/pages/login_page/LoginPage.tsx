@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 import ButtonBackLarge from "../../components/button_back_large/ButtonBackLarge";
 import LoginForm from "./login_form/LoginForm";
 
-export default function LoginPage(props: {
+interface LoginPageProps {
   setToken: (token: string) => void;
-}) {
- return (
+}
+
+const LoginPage: React.FC<LoginPageProps> = ({ setToken }) => {
+  return (
     <div className={styles.loginPage}>
       <div className={styles.buttonBackWrapper}>
         <ButtonBackLarge linkDirection="/landing-page" />
@@ -16,7 +18,8 @@ export default function LoginPage(props: {
       <p className={styles.createAccountNotice}>
         New here? <Link to="/register">Create an account</Link>.
       </p>
-      <LoginForm setToken={props.setToken} />
+      <LoginForm setToken={setToken} />
     </div>
   );
-}
+};
+export default LoginPage;
