@@ -6,7 +6,6 @@ import {Types} from "mongoose"
 import CircuitModel from "../models/circuit_model"
 
 const getWorkouts = async (req: Request, res: Response) => {
-  //find the user
   const user = await userServices.getUserById(req.body.userId)
   if (!user) {
     return res.json({
@@ -15,14 +14,14 @@ const getWorkouts = async (req: Request, res: Response) => {
     })
   }
 
-  if (user.workouts.length === 0) {
+  if (user.workoutIds.length === 0) {
     return res.status(200).json({
       success: true,
       workouts: []
     })
   }
 
-  const workoutsIds = user.workouts.map((workoutId) => Types.ObjectId(`${workoutId}`))
+  const workoutsIds = user.workoutIds.map((workoutId) => Types.ObjectId(`${workoutId}`))
   const workoutDocs = await workoutServices.getWorkoutsBasedOnIds(workoutsIds)
   if (!workoutDocs) {
     return res.json({
@@ -58,7 +57,7 @@ const addDefaultWorkout = async (req: Request, res: Response) => {
     console.log(`Fetching user by id either failed or not found!`)
     return
   }
-  user.workouts?.push(workoutDoc._id)
+  user.workoutIds?.push(workoutDoc._id)
 
   const userDoc = await userServices.saveUser(user)
   if (!userDoc) {
