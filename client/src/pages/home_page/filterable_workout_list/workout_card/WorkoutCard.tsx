@@ -28,7 +28,9 @@ const WorkoutCard: React.FC<WorkoutCardProps> = ({
         {/* Workout Name */}
         <h5 className={styles.workoutName}>{name}</h5>
         {/* Edit Workout Button */}
-        <Button text="Edit" size="sm" color="dark3" />
+        <Link to="/edit">
+          <Button text="Edit" size="sm" color="dark3" />
+        </Link>
       </div>
       <div className={styles.workoutBottomWrapper}>
         <div className={styles.workoutInfoWrapper}>
