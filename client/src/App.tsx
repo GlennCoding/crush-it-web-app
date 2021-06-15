@@ -7,6 +7,7 @@ import WorkoutEditPage from "./pages/workout_edit_page/WorkoutEditPage";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { useToken } from "./hooks/useToken";
 import { TokenContext } from "./context/token_context";
+import { Workout } from "./interfaces/workout";
 export default function App() {
   const { token, setToken } = useToken();
 
@@ -24,11 +25,11 @@ export default function App() {
               exact
               path="/edit-workout"
               render={(routeProps) => {
-                const { workoutId } = routeProps.location.state as {
-                  workoutId: string | null;
+                const { workout } = routeProps.location.state as {
+                  workout: Workout;
                 };
                 return token ? (
-                  <WorkoutEditPage workoutId={workoutId} />
+                  <WorkoutEditPage workoutProps={workout} />
                 ) : (
                   <Redirect to="/landing-page" />
                 );

@@ -4,11 +4,12 @@ import SearchBar from "../../../components/search_bar/SearchBar";
 import WorkoutCard from "./workout_card/WorkoutCard";
 import axios, { AxiosResponse } from "axios";
 import { TokenContext } from "../../../context/token_context";
-import { WorkoutItem } from "../../../interfaces/workout_item";
 import NoWorkoutsComponent from "./no_workouts_component/NoWorkoutsComponent";
+import { Workout } from "../../../interfaces/workout";
+
 interface Props {
-  workouts: WorkoutItem[];
-  setWorkoutList(a: WorkoutItem[]): void;
+  workouts: Workout[];
+  setWorkoutList(a: Workout[]): void;
 }
 
 const filterableWorkoutList: React.FC<Props> = ({
@@ -34,7 +35,7 @@ const filterableWorkoutList: React.FC<Props> = ({
     } catch (e) {
       return console.log(`Couldn't retrieve workout list. ${e}`);
     }
-    // console.log(response.data);
+    console.log(response.data);
     if (response.data.success) {
       setWorkoutList(response.data.workouts);
     }
@@ -56,7 +57,7 @@ const filterableWorkoutList: React.FC<Props> = ({
           <NoWorkoutsComponent />
         ) : (
           workouts.map((workout) => (
-            <WorkoutCard key={workout.id} {...workout} />
+            <WorkoutCard key={workout._id} workout={workout} />
           ))
         )}
       </div>

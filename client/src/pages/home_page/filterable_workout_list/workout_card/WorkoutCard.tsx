@@ -3,36 +3,24 @@ import { Link } from "react-router-dom";
 import * as icons from "@material-ui/icons";
 import styles from "./WorkoutCard.module.scss";
 import Button from "../../../../components/button/Button";
+import { Workout } from "../../../../interfaces/workout";
 
-interface WorkoutInfo {
-  numberOfSets: number;
-  numberOfExercises: number;
+interface Props {
+  workout: Workout;
 }
 
-interface WorkoutCardProps {
-  id: number;
-  name: string;
-  description: string;
-  info: WorkoutInfo;
-}
-
-const WorkoutCard: React.FC<WorkoutCardProps> = ({
-  id,
-  name,
-  description,
-  info,
-}) => {
+const WorkoutCard: React.FC<Props> = ({ workout }) => {
   return (
     <div className={styles.workoutCard}>
       <div className={styles.workoutTopWrapper}>
         {/* Workout Name */}
-        <h5 className={styles.workoutName}>{name}</h5>
+        <h5 className={styles.workoutName}>{workout.name}</h5>
         {/* Edit Workout Button */}
         <Link
           to={{
             pathname: "/edit-workout",
             state: {
-              workoutId: id,
+              workout: {},
             },
           }}
         >
@@ -43,12 +31,13 @@ const WorkoutCard: React.FC<WorkoutCardProps> = ({
         <div className={styles.workoutInfoWrapper}>
           {/* Workout Description */}
           <div className={styles.workoutDescription}>
-            {description === "" ? "No Description" : description}
+            {workout.description ?? "No Description"}
           </div>
           {/* Workout Info */}
           <div className={styles.workoutInfo}>
             <span>
-              {info.numberOfSets} Sets, {info.numberOfExercises} Exercises
+              {workout.setTotalAmount} Sets, {workout.exerciseTotalAmount}
+              Exercises
             </span>
           </div>
         </div>

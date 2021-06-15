@@ -4,16 +4,14 @@ import Logo from "../../images/crush_it_logo/crush-it-logo-white-small.png";
 import * as icons from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import Button from "../../components/button/Button";
-import { WorkoutItem } from "../../interfaces/workout_item";
 import FilterableWorkoutList from "./filterable_workout_list/FilterableWorkoutList";
 import { TokenContext } from "../../context/token_context";
-import workouts from "./data";
+import { Workout } from "../../interfaces/workout";
+
 interface Props {}
 
-const homePage: React.FC<Props> = () => {
-  const [currentWorkoutList, setCurrentWorkoutList] = useState<WorkoutItem[]>(
-    []
-  );
+const homePage: React.FC<Props> = ({}) => {
+  const [currentWorkoutList, setCurrentWorkoutList] = useState<Workout[]>([]);
   const tokenContext = useContext(TokenContext);
   return (
     <div className={styles.homePage}>
@@ -34,7 +32,7 @@ const homePage: React.FC<Props> = () => {
           to={{
             pathname: "/edit-workout",
             state: {
-              workoutId: null,
+              workout: null,
             },
           }}
         >

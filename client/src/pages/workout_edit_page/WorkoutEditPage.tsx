@@ -6,19 +6,25 @@ import CircuitList from "./circuit_list/CircuitList";
 import { Link } from "react-router-dom";
 import { Workout } from "../../interfaces/workout";
 import Loader from "../../components/loader/Loader";
+import { Circuit } from "../../interfaces/circuit";
+
 interface WorkoutEditPageProps {
   workoutProps: Workout;
 }
 
 const WorkoutEditPage: React.FC<WorkoutEditPageProps> = ({ workoutProps }) => {
   const [workout, setWorkout] = useState<Workout>(workoutProps);
+  const [circuits, setCircuits] = useState<Circuit[]>();
+
   const componentDidMount = () => {
+    console.log(workout);
     if (!workout) {
       //Create New Workout
       // POST /workout (authorization token)
       //Response -> workoutObject
     } else {
       //Get circutis based on the cirscuits ids
+      //update
       setWorkout(workout);
       // GET /circuits () (body: workoutProps.circuitIds) (authorization token)
       //Response -> curcuits[]
@@ -37,13 +43,13 @@ const WorkoutEditPage: React.FC<WorkoutEditPageProps> = ({ workoutProps }) => {
         <div className={styles.container}>
           <Link to="/home">
             <icons.ChevronLeft className={styles.icon} />
-          </Link>
+          </Link> 
           <h3>Workout 1</h3>
           <icons.Tune className={styles.icon} />
         </div>
         <p className={styles.description}>Workout Description</p>
       </div>
-      <CircuitList data={data} />
+      {!circuits ? <Loader /> : <CircuitList data={data} />}
     </div>
   );
 };
