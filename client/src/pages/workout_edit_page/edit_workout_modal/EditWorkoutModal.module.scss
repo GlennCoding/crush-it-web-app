@@ -1,0 +1,77 @@
+@import "../../../sass_styles/variables.scss";
+
+.darkBackground {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  z-index: -1;
+}
+
+.modalContainer {
+  position: fixed;
+  padding: 16px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  transition: var(--transition);
+  visibility: hidden;
+  z-index: -1;
+}
+/* OPEN/CLOSE MODAL */
+.showModal {
+  visibility: visible;
+  z-index: 10;
+}
+
+.form {
+  width: 100%;
+
+  .inputContainer {
+    padding: 20px 14px;
+    background-color: $primaryDark2Color;
+    margin-bottom: $m3;
+    border-radius: $radius-lg;
+
+    label {
+      font-style: normal;
+      font-size: 14px;
+      line-height: 22px;
+    }
+
+    input {
+      display: block;
+      padding: 10px;
+      height: 4.4rem;
+      outline: none;
+      width: 100%;
+      border-radius: $radius-lg;
+      font-size: 14px;
+      border: 0;
+      color: white;
+      background: $primaryDark1Color;
+
+      &::placeholder {
+        color: white;
+      }
+    }
+  }
+}
+
+// display: block;
+//     height: 4.8rem;
+//     width: 100%;
+//     padding: 10px;
+//     outline: none;
+//     background: $primaryDark2Color;
+//     border-radius: $radius-lg;
+//     border: 0;
+//     color: white;

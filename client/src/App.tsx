@@ -14,17 +14,12 @@ export default function App() {
     <main>
       <BrowserRouter>
         <Switch>
-          <Route
-            exact
-            path="/edit"
-            render={() => {
-              return token ? (
-                <WorkoutEditPage />
-              ) : (
-                <Redirect to="/landing-page" />
-              );
-            }}
-          />
+          <Route exact path="/edit">
+            <WorkoutEditPage
+              name="Workout 1"
+              description="Best Morning Workout"
+            />
+          </Route>
           <Route
             exact
             path="/home"

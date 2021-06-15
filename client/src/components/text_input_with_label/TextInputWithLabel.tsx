@@ -20,10 +20,9 @@ const TextInputWithLabel: React.FC<TextInputWithLabelProps> = ({
   name,
   required,
 }) => {
-  const label = <label className={styles.label}>{labelText}</label>;
   return (
     <>
-      {labelText && label}
+      {labelText && <label className={styles.label}>{labelText}</label>}
       <input
         className={styles.inputText}
         onChange={onChange}
