@@ -3,7 +3,7 @@ import styles from "./WorkoutEditPage.module.scss";
 import * as icons from "@material-ui/icons";
 import data from "./circuits";
 import CircuitList from "./circuit_list/CircuitList";
-
+  
 interface WorkoutEditPageProps {
   name?: string;
   description?: string;

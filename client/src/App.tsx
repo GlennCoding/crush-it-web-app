@@ -35,10 +35,9 @@ export default function App() {
             //     <Redirect to="/landing-page" />
             //   );
             // }}
-            render={() => {
-              return <HomePage setToken={setToken} />;
-            }}
-          />
+          >
+            <HomePage setToken={setToken} />
+          </Route>
           <Route
             exact
             path="/register"
