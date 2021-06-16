@@ -5,8 +5,8 @@ import Button from '../../../../components/button/Button'
 import { Circuit } from '../../../../interfaces/circuit'
 
 interface Props {
-    index: number;
-    circuit: Circuit;
+    index: number
+    circuit: Circuit
     changeSetAmount: (id: number, operation: 'add' | 'remove') => void
     changeTimeBetweenSetSec: (id: number, operation: 'add' | 'remove') => void
     addNewExercise: (index: number) => void
