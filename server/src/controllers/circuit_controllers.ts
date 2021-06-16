@@ -4,14 +4,17 @@ import * as circuitServices from "../services/db/circuit_services"
 import * as workoutServices from "../services/db/workout_services"
 
 const circuits = async (req: Request, res: Response) => {
-  const {circuitIds} = req.body
+  const {circuitIds} = req.query
+
   if (!circuitIds)
     return res.status(422).send({
       success: false,
       message: `Circuit ids are missing!`
     })
 
-  const circuitObjectIds = circuitIds.map((circuitId: string) => Types.ObjectId(circuitId))
+  const circuitIdList = (circuitIds as string).split(",")
+
+  const circuitObjectIds = circuitIdList.map((circuitId: string) => Types.ObjectId(circuitId))
   const circuitDocs = await circuitServices.getCircuits(circuitObjectIds)
   if (!circuitDocs)
     return res.status(500).json({

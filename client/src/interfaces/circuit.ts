@@ -3,5 +3,5 @@ export interface Circuit {
   _id?: string;
   setAmount: number;
   timeBetweenSetsSec: number;
-  exercises?: Exercise[];
+  exercises: Exercise[];
 }

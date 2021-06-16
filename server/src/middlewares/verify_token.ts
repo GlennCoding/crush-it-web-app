@@ -6,7 +6,7 @@ const verifyToken = async (req: Request, res: Response, next: any) => {
   const token = req.header("authorization")?.split(" ")[1]
 
   if (!token)
-    return res.status(422).json({
+    return res.json({
       message: "Token not found",
       success: false
     })
@@ -14,7 +14,7 @@ const verifyToken = async (req: Request, res: Response, next: any) => {
   try {
     payload = await jwt.verify(token, config.jWTSecretKey)
   } catch {
-    return res.status(401).json({
+    return res.json({
       message: "Token is invalid.",
       success: false
     })

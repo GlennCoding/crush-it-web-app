@@ -2,7 +2,7 @@ export interface Workout {
   name: string;
   setTotalAmount?: number;
   exerciseTotalAmount?: number;
-  circuitIds?: String[];
+  circuitIds: string[];
   description?: string;
   _id?: string;
 }

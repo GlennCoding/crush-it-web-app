@@ -106,3 +106,7 @@ dist
 #My code
 dist/
 mongoose_test.ts
+
+
+# Giorgi's ignored files
+.prettierrc.json

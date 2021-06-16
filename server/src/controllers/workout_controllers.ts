@@ -39,7 +39,7 @@ const addDefaultWorkout = async (req: Request, res: Response) => {
   const circuit = new CircuitModel({setAmount: 0, timeBetweenSetsSec: 0})
   const circuitDoc = await circuitServices.saveCircuit(circuit)
 
-  if (!circuitDoc) return res.status(500).json({success: false, message: "Adding workout failed."})
+  if (!circuitDoc) return res.json({success: false, message: "Adding workout failed."})
 
   const workoutDoc = await workoutServices.addWorkout({
     description: "No description",
@@ -49,7 +49,7 @@ const addDefaultWorkout = async (req: Request, res: Response) => {
     circuitIds: circuitDoc._id
   })
 
-  if (!workoutDoc) return res.status(500).json({success: false, message: "Adding workout failed."})
+  if (!workoutDoc) return res.json({success: false, message: "Adding workout failed."})
 
   //user update
   const user = await userServices.getUserById(req.body.userId)
@@ -61,7 +61,7 @@ const addDefaultWorkout = async (req: Request, res: Response) => {
 
   const userDoc = await userServices.saveUser(user)
   if (!userDoc) {
-    return res.status(500).json({success: false, workoutId: "Adding workout failed."})
+    return res.json({success: false, workoutId: "Adding workout failed."})
   }
 
   res.status(200).json({success: true, workout: workoutDoc})

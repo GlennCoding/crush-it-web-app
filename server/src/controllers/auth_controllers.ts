@@ -11,7 +11,7 @@ const register = async (req: Request, res: Response) => {
   const {email, password, name} = req.body
 
   if (!email || !password || !name)
-    return res.status(422).json({
+    return res.json({
       success: false,
       message: "Please provide neccessary fields for the registration!"
     })
@@ -33,7 +33,7 @@ const register = async (req: Request, res: Response) => {
 
   const exercises = await exerciseServices.insertDefaultExercises(defaultExercises)
   if (!exercises)
-    return res.status(500).json({
+    return res.json({
       success: false,
       message: "Internal Server Error: Registering user failed."
     })
@@ -71,14 +71,14 @@ const register = async (req: Request, res: Response) => {
 const login = async (req: Request, res: Response) => {
   const {email, password} = req.body
   if (!email || !password)
-    return res.status(422).json({
+    return res.json({
       success: false,
       message: "Email or/and password is missing!"
     })
 
   const user = (await userServices.getUserByEmail(email)) as User
   if (!user)
-    return res.status(404).json({
+    return res.json({
       success: false,
       message: `A user with the email ${email} doesn't exist.`
     })
@@ -89,14 +89,14 @@ const login = async (req: Request, res: Response) => {
   })
 
   if (!result)
-    return res.status(403).json({
+    return res.json({
       success: false,
       message: "Password is incorrect, please try again."
     })
 
   const token = await signToken({_id: user._id as string, email: user.email})
   if (!token)
-    return res.status(500).json({
+    return res.json({
       message: "Internal Server Error: Token generation failed!",
       success: false
     })

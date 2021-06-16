@@ -20,7 +20,7 @@ const WorkoutCard: React.FC<Props> = ({ workout }) => {
           to={{
             pathname: "/edit-workout",
             state: {
-              workout: {},
+              workout: workout,
             },
           }}
         >
