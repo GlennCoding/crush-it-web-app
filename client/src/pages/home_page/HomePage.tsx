@@ -13,6 +13,7 @@ interface Props {}
 const homePage: React.FC<Props> = ({}) => {
   const [currentWorkoutList, setCurrentWorkoutList] = useState<Workout[]>([]);
   const tokenContext = useContext(TokenContext);
+
   return (
     <div className={styles.homePage}>
       <button onClick={() => tokenContext.set("")}>Log Out</button>

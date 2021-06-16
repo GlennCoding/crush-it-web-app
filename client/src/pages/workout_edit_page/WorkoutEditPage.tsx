@@ -11,11 +11,11 @@ import { addDefaultWorkout } from '../../services/workout_services'
 import { getCircuitsByCircuitIds } from '../../services/circuit_services'
 import { TokenContext } from '../../context/token_context'
 
-interface WorkoutEditPageProps {
+interface Props {
     workoutProps: Workout
 }
 
-const WorkoutEditPage: React.FC<WorkoutEditPageProps> = ({ workoutProps }) => {
+const WorkoutEditPage: React.FC<Props> = ({ workoutProps }) => {
     const [workout, setWorkout] = useState<Workout>(workoutProps)
     const [circuits, setCircuits] = useState<Circuit[]>()
     const [error, setError] = useState<string>()
@@ -58,7 +58,6 @@ const WorkoutEditPage: React.FC<WorkoutEditPageProps> = ({ workoutProps }) => {
 
     return (
         <div className={styles.page}>
-            {/* Navbar */}
             <div className={styles.navbar}>
                 <div className={styles.container}>
                     <Link to="/home">
